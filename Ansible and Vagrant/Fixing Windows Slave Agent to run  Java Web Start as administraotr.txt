@@ -1,9 +1,0 @@
-Install jenkins windows slave as a service
-using web console but getting WMI.WmiException: AccessDenied
-quite out of the java applet
-remove everyting exept slave-agent.jnlp in your remotefolder
-create a cmd shortcut on remotefolder
-run cmd as administrator
-cd c:/remotefolder
-./slave-agent.jnlp
-java applet popped up and choose run as windows service
