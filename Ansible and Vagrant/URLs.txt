@@ -1,0 +1,15 @@
+links:
+https://www.unixarena.com/2019/03/ansible-engine-run-playbook-using-jenkins-gui.html/
+https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=&q=ansible
+http://www.hurryupandwait.io/blog
+https://docs.ansible.com/ansible/latest/modules/list_of_windows_modules.html
+https://docs.ansible.com/ansible/latest/modules/template_module.html
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html
+http://www.mydailytutorials.com/ansible-template-module-examples/
+https://medium.com/appgambit/configure-jenkins-with-ansible-7bfaa387fb1c
+https://wiki.jenkins.io/display/JENKINS/Ansible+Plugin
+https://github.com/jenkinsci/ansible-plugin
+https://docs.ansible.com/ansible/latest/user_guide/windows.html
+https://www.ansible.com/products/tower
+https://www.ansiblefordevops.com/
+https://github.com/ansible/ansible/blob/stable-2.8/changelogs/CHANGELOG-v2.8.rst

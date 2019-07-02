@@ -1,0 +1,44 @@
+Vagrant utilises a much simpler architecture than Docker. 
+It uses virtual machines to run environments independent of the host machine. 
+... Docker, however, uses “containers” which include your application and all of its dependencies, 
+but share the kernel (operating system) with other containers.
+
+ansible web -m win_service -a "name=spooler"
+ansible web -m win_feature -a "name=Telnet-Client state=present"
+
+ansible-playbook iis.yml
+ansible-playbook webserver.yml
+
+
+ansible web -m win_ping
+
+encrypt the pas
+ansible-vault encrypt group_vars/all.yaml
+
+decrypt:
+ansible db -m win_ping --ask-vault-pass
+
+
+ansible-playbook database.yml -ask-vault-pass
+vagrant@ubunt-control:~/pluralsight$ ansible-playbook webserver.yml -ask-valut-pass
+
+test:
+ansible db -m win_service -a "name=mysql" --ask-vault-pass
+
+Ansible Tower is gui
+free for 10 nodes otherwise $$$
+
+
+vagrant halt control (shutdown, vagrant is a user)
+atom vagrantfile (apple editor)
+
+install ansible tower:
+apt-get install build-essential libssl-dev libffi-dev python-dev
+pip install cryptography
+wget https://release.ansible.com/awx/setup/ansible-tower-setup-latest.tar.gz
+tar -xvf ansible-tower-setup-latest.tar.gz
+cd ansible-tower-setup-2.4.5
+./configure
+./setup
+
+root@ubuntu-control:/var/lib/awx/projects#
