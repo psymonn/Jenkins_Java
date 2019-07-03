@@ -1,0 +1,44 @@
+Artifactory CI
+https://www.youtube.com/watch?v=fxtQThl8B-8
+use this sample:
+https://github.com/jfrog/project-examples
+
+choose maven project:
+see captured pic
+build -> libs-release; libs-snapshot
+postbuild -> libs-release-local; libs-snapshot-local
+
+now build the project.
+this will build artifact archieve in artifactory
+
+Example of Retrieve Build Artifacts Archive:
+https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-TraceArtifactRetrieval
+go to the linxux server and enter this line:
+http -a admin:password -d POST http://localhost:8080/artifactory/api/arhieve/buildArtifacts buildName=maven-example buildNumber=2 archiveType=zip
+unzip buildArtifacts.zip
+
+goto Jenkins choose Artifactory Release Staging
+goto Jenkins choose Artifactory Release Promotion
+
+
+Jenkins build steps:
+build -> libs-snapshot-local (first build download all dependencies from artifact repo)
+build again -> much faster
+artifactory release staging (shown up)  after run the build the version are changed and committed to the master (git)
+      artifactory now have the release version. e.g multi1-3.5.jar
+Artifactory Release Promotion (show up after release staging)
+      artifactory release history -> have release and stage  info.
+      artifactory -> publish modules -> select artifact -> multi-3.5.jar -> choose path should takes u directory to the libs-release-repo
+
+
+artifactory build steps:
+00:26 - Installing Jenkins Artifactory Plugin
+01:16 - Configuring Jenkins Maven Job with Artifactory Plugin
+04:51 - Artifactory Build Browser
+07:00 - Artifactory OSS License Management
+08:10 - Artifactory Build Info JSON
+08:34 - Build Diffing
+10:01 - Build Related Properties
+10:36 - Properties Search
+11:18 - Download build artifacts archive REST resource
+11:59 - Release Management with Artifactory Jenkins Plugin

@@ -1,0 +1,48 @@
+new local repo; choose yum
+enter you random repository key*: yum-local
+save
+new remote repo; choose yum
+enter you random repository key*: centos
+enter the url*: http://mirror.centos.org/centos-7/7/os/x86_64/
+test
+save & finish
+now check your new artifactory repo:
+yum-local
+centos-cahe   (choose this and click setup me up button)
+logon to the unix box and enter the below instruction:
+sudo vi /etc/yum.repos.d/artifactory.repo
+[Artifactory]
+name=Artifactory
+baseurl=http://localhost:8081/artifactory/centos/
+enable=1
+gpgcheck=0
+
+this will installl the new package (rpm file) into artifactory centos-cache:
+sudo yum install mercurial
+
+goto artifactory repo browser:
+select yum-local
+select Deploy (upload the rpm file to yum-local)
+select the rpm file to upload
+choose the target path: /vmware-artifactory-plugins/1.2.0-1/noarch/vmware 
+now you can see /vmware-artifactory-plugins/1.2.0-1/noarch in your yum-local
+and reodata (metadata and repomd.xml)
+
+select yum-local
+click on Set Me Up
+sudo vi /etc/yum.repos.d/artifactory.repo   (update the whole file to this)
+[Artifactory-Centos-Cache]
+name=Artifactory-Centos-Cache
+baseurl=http://localhost:8081/artifactory/centos/
+enable=1
+gpgcheck=0
+[Artifactory-Local]
+name=Artifactory-Local
+baseurl=http://localhost:8081/artifactory/yum-local/
+enable=1
+gpgcheck=0
+
+install package from local repo:
+sudo yum install vmware-artifactory-plugins
+
+
