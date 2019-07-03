@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=HZvwamCJR-Q
+
 new local repo; choose yum
 enter you random repository key*: yum-local
 save
