@@ -1,0 +1,127 @@
+yumdownloader --skip-broken --destdir=/tmp --enablerepo=remi,remi-php71 install php-cli php-pear php-pdo php-mysqlnd php-gd php-mbstring php-mcrypt php-xml
+
+
+works:
+yumdownloader --destdir=/tmp/pkg2 --enablerepo=remi,remi-php71 php-cli php-pear php-pdo php-mysqlnd php-gd php-mbstring php-mcrypt php-xml
+
+yumdownloader --destdir=/tmp/pkg php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql -y
+
+[root@localhost pkg2]# yumdownloader --destdir=/tmp/pkg3  --enablerepo=rhel-7-server-rpms/7Server/x86_64, httpd
+-----------------------------------------------------------------------
+Configuring Software Repositories
+---------------------------------------------------------------------------
+[root@localhost yum.repos.d]# subscription-manager register
+Registering to: subscription.rhsm.redhat.com:443/subscription
+Username: psymonn2
+Password:
+The system has been registered with ID: 0f7e465d-a4f0-49f8-a17b-f22809b36965
+The registered system name is: localhost.localdomain
+
+WARNING
+
+The yum/dnf plugins: /etc/yum/pluginconf.d/subscription-manager.conf were automatically enabled for the benefit of Red Hat Subscription Management. If not desired, use "subscription-manager config --rhsm.auto_enable_yum_plugins=0" to block this behavior.
+
+[root@localhost yum.repos.d]# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.5.184  netmask 255.255.255.0  broadcast 172.17.5.255
+        inet6 fe80::70d3:e4e1:66f4:6576  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:5c:b8:e7  txqueuelen 1000  (Ethernet)
+        RX packets 42315  bytes 53564258 (51.0 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 14418  bytes 1692637 (1.6 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 68  bytes 5780 (5.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 68  bytes 5780 (5.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost yum.repos.d]# subscription-manager list --available
++-------------------------------------------+
+    Available Subscriptions
++-------------------------------------------+
+Subscription Name:   30 Day Red Hat Enterprise Linux Server Self-Supported Evaluation
+Provides:            Red Hat Beta
+                     Oracle Java (for RHEL Server)
+                     Red Hat Enterprise Linux Server
+                     Red Hat CodeReady Linux Builder for x86_64
+                     Red Hat Enterprise Linux for x86_64
+                     Red Hat Ansible Engine
+                     Red Hat Container Images Beta
+                     Red Hat Enterprise Linux Atomic Host Beta
+                     Red Hat Enterprise Linux Atomic Host
+                     Red Hat Container Images
+SKU:                 RH00065
+Contract:            11974576
+Pool ID:             8a85f99a6c2a427d016c3271b42b5e41
+Provides Management: No
+Available:           2
+Suggested:           1
+Service Level:       Self-Support
+Service Type:        L1-L3
+Subscription Type:   Instance Based
+Starts:              07/26/2019
+Ends:                08/25/2019
+System Type:         Physical
+
+[root@localhost yum.repos.d]# cat /etc/yum.repos.d/redhat.repo
+#
+# Certificate-Based Repositories
+# Managed by (rhsm) subscription-manager
+#
+# *** This file is auto-generated.  Changes made here will be over-written. ***
+# *** Use "subscription-manager repo-override --help" if you wish to make changes. ***
+#
+# If this file is empty and this system is subscribed consider
+# a "yum repolist" to refresh available repos
+#
+[root@localhost yum.repos.d]# yum repolist
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+This system is registered with an entitlement server, but is not receiving updates. You can use subscription-manager to assign subscriptions.
+repo id                                                             repo name                                                                                                          status
+*epel/x86_64                                                        Extra Packages for Enterprise Linux 7 - x86_64                                                                     13,327
+remi-safe                                                           Safe Remi's RPM repository for Enterprise Linux 7 - x86_64                                                          3,542
+repolist: 16,869
+[root@localhost yum.repos.d]# subscription-manager attach --pool=8a85f99a6c2a427d016c3271b42b5e41
+Successfully attached a subscription for: 30 Day Red Hat Enterprise Linux Server Self-Supported Evaluation
+[root@localhost yum.repos.d]#  yum repolist
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+rhel-7-server-rpms                                                                                                                                                    | 3.5 kB  00:00:00
+(1/3): rhel-7-server-rpms/7Server/x86_64/group                                                                                                                        | 774 kB  00:00:00
+(2/3): rhel-7-server-rpms/7Server/x86_64/updateinfo                                                                                                                   | 3.2 MB  00:00:01
+(3/3): rhel-7-server-rpms/7Server/x86_64/primary_db                                                                                                                   |  57 MB  00:00:11
+repo id                                                                        repo name                                                                                               status
+*epel/x86_64                                                                   Extra Packages for Enterprise Linux 7 - x86_64                                                          13,327
+remi-safe                                                                      Safe Remi's RPM repository for Enterprise Linux 7 - x86_64                                               3,542
+rhel-7-server-rpms/7Server/x86_64                                              Red Hat Enterprise Linux 7 Server (RPMs)                                                                24,415
+repolist: 41,284
+[root@localhost yum.repos.d]#
+
+[root@localhost yum.repos.d]# yum-config-manager rhel-7-server-rpms/7Server/x86_64 --setopt="rhel-server-ost-6-folsom-rpms.priority=1"
+Loaded plugins: langpacks, product-id, subscription-manager
+[root@localhost yum.repos.d]#
+Transaction Summary
+=============================================================================================================================================================================================
+Install    2 Packages
+Upgrade  105 Packages
+
+Total download size: 213 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+warning: /var/cache/yum/x86_64/7Server/rhel-7-server-rpms/packages/NetworkManager-config-server-1.12.0-10.el7_6.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID fd431d51: NOKEY:--:-- ETA
+Public key for NetworkManager-config-server-1.12.0-10.el7_6.noarch.rpm is not installed
+(1/107): NetworkManager-config-server-1.12.0-10.el7_6.noarch.rpm                                                                                                      | 146 kB  00:00:00
+(2/107): NetworkManager-1.12.0-10.el7_6.x86_64.rpm                                                                                                                    | 1.7 MB  00:00:01
+(3/107): NetworkManager-libnm-1.12.0-10.el7_6.x86_64.rpm                                                                                                              | 1.4 MB  00:00:00
+(4/107): NetworkManager-team-1.12.0-10.el7_6.x86_64.rpm                                                                                                               | 159 kB  00:00:00
+(5/107): NetworkManager-tui-1.12.0-10.el7_6.x86_64.rpm                                                                                                                | 239 kB  00:00:00
+(6/107): bind-libs-9.9.4-74.el7_6.1.x86_64.rpm                                                                                    
+.
+.
+.
+.
+reboot
