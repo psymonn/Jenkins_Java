@@ -1,0 +1,11 @@
+
+https://www.youtube.com/watch?v=yZHw3ZYxKIA
+
+rpm -ql samba | less
+visudo
+
+yum install samba-windbind samba
+
+vi /etc/security/pam_winbind.conf   (add ad group)
+vi /etc/sudoers       (add group to sudo access)
+
