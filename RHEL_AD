@@ -9,3 +9,5 @@ yum install samba-windbind samba
 vi /etc/security/pam_winbind.conf   (add ad group)
 vi /etc/sudoers       (add group to sudo access)
 
+vi /etc/ssh/sshd_config   (AllowGroups sshusers roleGroups)
+vi /etc/sssd.conf   (Connect to AD domain)
