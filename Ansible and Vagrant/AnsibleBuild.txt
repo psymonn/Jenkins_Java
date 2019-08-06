@@ -84,3 +84,28 @@ enter your previous password.
 ansible-playbook database.yml --ask-vault-pass
 ansible-playbook webserver.yml --ask-vault-pass
 ansible db -m win_service -a "name=mysql" --ask-vault-pass
+-------module 6 ------------
+ansible tower:
+1. logon to ansible tower gui at the top right click admin:setting
+2. create organizations -> name: Globomantics; descritpionp: blablab
+3. create credential -> name: All Nodes; user that ownns this credential: admin; type: Machine; username & password
+add inventories (create inventories container within ansible tower) -> Name: Globomantics Nodes; Organization: Globomantics
+                                                                    -> Variable: ansible_port: 5985   (from group_vars/all.yaml)
+                                                                    -> Variable: ansible_connections: winrm (from group_vars/all.yaml)
+                   Note: group_vars/all.yaml stored global variables and its encrypted.
+4. import original inventory into that container
+goto the ansible tower server:
+root@ubuntu-control:/var/lib/awx/projects# cp -R /home/vagrant/pluralsight/ globomatics
+root@ubuntu-control:/var/lib/awx/projects# tree
+root@ubuntu-control:/var/lib/awx/projects# cd globomatics
+root@ubuntu-control:/var/lib/awx/projects# rm group_vars/all.yml   (remove; no longer needed)
+root@ubuntu-control:/var/lib/awx/projects# tower-manager inventory_import --source=./inventory.yml --inventory-name="Globalmantics NOdes"
+5. logon to anisble tower gui, select inventories (you should see all your inventory.yml imported)
+6. run adhoc command choose a spaceship icon (in inventories); choose Module: win_ping; click launch
+7. create a project -> name: Globomantics SaaS Nodes, Orgnization: Globomantics, SCM Type: Manual, Playbook Directory: globomantics
+8. Goto Job Templates & create a new one -> name: Configure Web Servers, job type: run, Inventory: Globomantics Nodes, Project: Globomantics Saas Nodes, 
+                                         -> Playbook: webservers.yml, Machine credential: All Nodes ->save
+9. Create another Job Templates for database
+10. under job templates click launch the "Configure Web Servers" job (rocket icon)
+11. click on the Job tab you can see all the history of jobs ran earlier
+12. can add schedule task
