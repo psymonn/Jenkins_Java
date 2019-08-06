@@ -1,0 +1,86 @@
+ansible web -i inventory.yml -m win_ping   testing ping over winrm (win_ping !=ping)
+
+ansible web -i inventory.yml -m setup   (getting data from target server)
+
+nano ansible.cfg (point to the invertory.yml file)
+
+anisble web -m setup (no need to incoude -i inventory.yml)
+
+ansible web -m raw -a "dir"  (return remote target command)
+
+ansible web -m raw -a "ipconfig"
+
+ansible web -m win_service -a "name=spooler"  (return windows service)
+
+ansible web -m win_service -a "name=spooler state=stopped"  (stop windows spooler service)
+
+
+ansible web -m win_service -a "name=spooler state=started"  (start windows spooler service)
+
+ansible web -m win_feature -a "name=Telnet-Client state=present"  (install telnet feature)
+
+--------module 4-----------
+nano iis.yml  (create ansible play book e.g bunch of tasks)
+iis.yml:
+- host: web    (web from inventory)
+  tasks:
+  - name: Ensure IIS web server is installed
+    win_feature:
+      name: Web-Server
+      state: present
+    when: ansible_os_family == "Windows"
+
+    - name: Deploy default iisstart.htm file
+
+      template:
+      
+      src: iisstart.j2
+      
+      dest: c:\inetpub\wwwroot\iisstart.htm
+
+
+iisstart.j2:	
+<html>
+<h1>Hey there, JP. Hello from the {{ ansible_fqdn }} server.</h1>
+</html>
+
+
+
+ansible-playbook iis.yml  (run the playbook)
+
+test iis is up-> http://ip
+--------------
+ansible-playbook webservers.yml (run the cleaned up playbook)
+
+---------module 5----------
+inventory.yml:
+---
+
+[web]
+
+192.168.57.3
+
+192.168.57.4
+
+
+
+[db]
+192.168.57.5
+
+
+ansible web -m win_ping   (ping to each of the web server inside inventory.yml [web])
+
+ansible db -m win_ping (ping db server inside inventory.yml[db])
+
+encrypt everything inside all.yaml:
+ansible-vault encrypt group_vars/all.yaml
+enter your encrypted password.
+test-> ansible db -m win_ping  (expected decrytpion failed message)
+
+decrypt:
+ansible db -m win_ping --ask-vault-pass
+enter your previous password.
+
+ansible-playbook database.yml --ask-vault-pass
+ansible-playbook webserver.yml --ask-vault-pass
+ansible db -m win_service -a "name=mysql" --ask-vault-pass
