@@ -13,3 +13,4 @@ https://docs.ansible.com/ansible/latest/user_guide/windows.html
 https://www.ansible.com/products/tower
 https://www.ansiblefordevops.com/
 https://github.com/ansible/ansible/blob/stable-2.8/changelogs/CHANGELOG-v2.8.rst
+https://docs.ansible.com/ansible/latest/user_guide/intro_windows.html
