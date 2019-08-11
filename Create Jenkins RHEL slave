@@ -1,1 +1,287 @@
 http://yallalabs.com/devops/how-to-add-linux-slave-node-agent-node-jenkins/
+
+login as: administrator
+administrator@172.17.5.186's password:
+Creating home directory for administrator.
+[administrator@redhat7 ~]$ sudo su
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for administrator:
+administrator is not in the sudoers file.  This incident will be reported.
+[administrator@redhat7 ~]$ su
+Password:
+[administrator@redhat7 ~]$ su -
+Password:
+Last login: Sun Aug 11 00:57:46 PDT 2019 on pts/0
+[root@redhat7 ~]# ls
+anaconda-ks.cfg  original-ks.cfg
+[root@redhat7 ~]# pwd
+/root
+[root@redhat7 ~]# java
+-bash: java: command not found
+[root@redhat7 ~]# sudo yum install java-1.8.0-openjdk
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+Resolving Dependencies
+--> Running transaction check
+---> Package java-1.8.0-openjdk.x86_64 1:1.8.0.222.b10-0.el7_6 will be installed
+--> Processing Dependency: java-1.8.0-openjdk-headless(x86-64) = 1:1.8.0.222.b10-0.el7_6 for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: gtk2(x86-64) for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: libjava.so(SUNWprivate_1.1)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: libjvm.so(SUNWprivate_1.1)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: xorg-x11-fonts-Type1 for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: libgif.so.4()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: libjava.so()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: libjvm.so()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64
+--> Running transaction check
+---> Package giflib.x86_64 0:4.1.6-9.el7 will be installed
+--> Processing Dependency: libICE.so.6()(64bit) for package: giflib-4.1.6-9.el7.x86_64
+--> Processing Dependency: libSM.so.6()(64bit) for package: giflib-4.1.6-9.el7.x86_64
+---> Package gtk2.x86_64 0:2.24.31-1.el7 will be installed
+---> Package java-1.8.0-openjdk-headless.x86_64 1:1.8.0.222.b10-0.el7_6 will be installed
+--> Processing Dependency: copy-jdk-configs >= 3.3 for package: 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: tzdata-java >= 2015d for package: 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: jpackage-utils for package: 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: lksctp-tools(x86-64) for package: 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64
+--> Processing Dependency: pcsc-lite-libs(x86-64) for package: 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64
+---> Package xorg-x11-fonts-Type1.noarch 0:7.5-9.el7 will be installed
+--> Processing Dependency: mkfontdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Processing Dependency: mkfontdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Processing Dependency: ttmkfdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Processing Dependency: ttmkfdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Running transaction check
+---> Package copy-jdk-configs.noarch 0:3.3-10.el7_5 will be installed
+---> Package javapackages-tools.noarch 0:3.4.1-11.el7 will be installed
+--> Processing Dependency: python-javapackages = 3.4.1-11.el7 for package: javapackages-tools-3.4.1-11.el7.noarch
+---> Package libICE.x86_64 0:1.0.9-9.el7 will be installed
+---> Package libSM.x86_64 0:1.2.2-2.el7 will be installed
+---> Package lksctp-tools.x86_64 0:1.0.17-2.el7 will be installed
+---> Package pcsc-lite-libs.x86_64 0:1.8.8-8.el7 will be installed
+---> Package ttmkfdir.x86_64 0:3.0.9-42.el7 will be installed
+---> Package tzdata-java.noarch 0:2019b-1.el7 will be installed
+---> Package xorg-x11-font-utils.x86_64 1:7.5-21.el7 will be installed
+--> Processing Dependency: libfontenc.so.1()(64bit) for package: 1:xorg-x11-font-utils-7.5-21.el7.x86_64
+--> Running transaction check
+---> Package libfontenc.x86_64 0:1.1.3-3.el7 will be installed
+---> Package python-javapackages.noarch 0:3.4.1-11.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================================================================================================================================================
+ Package                                                                               Arch                                                             Version                                                                           Repository                                                                    Size
+=============================================================================================================================================================================================================================================================================================================================
+Installing:
+ java-1.8.0-openjdk                                                                    x86_64                                                           1:1.8.0.222.b10-0.el7_6                                                           rhel-7-server-rpms                                                           274 k
+Installing for dependencies:
+ copy-jdk-configs                                                                      noarch                                                           3.3-10.el7_5                                                                      rhel-7-server-rpms                                                            21 k
+ giflib                                                                                x86_64                                                           4.1.6-9.el7                                                                       rhel-7-server-rpms                                                            40 k
+ gtk2                                                                                  x86_64                                                           2.24.31-1.el7                                                                     rhel-7-server-rpms                                                           3.4 M
+ java-1.8.0-openjdk-headless                                                           x86_64                                                           1:1.8.0.222.b10-0.el7_6                                                           rhel-7-server-rpms                                                            32 M
+ javapackages-tools                                                                    noarch                                                           3.4.1-11.el7                                                                      rhel-7-server-rpms                                                            73 k
+ libICE                                                                                x86_64                                                           1.0.9-9.el7                                                                       rhel-7-server-rpms                                                            66 k
+ libSM                                                                                 x86_64                                                           1.2.2-2.el7                                                                       rhel-7-server-rpms                                                            39 k
+ libfontenc                                                                            x86_64                                                           1.1.3-3.el7                                                                       rhel-7-server-rpms                                                            31 k
+ lksctp-tools                                                                          x86_64                                                           1.0.17-2.el7                                                                      rhel-7-server-rpms                                                            88 k
+ pcsc-lite-libs                                                                        x86_64                                                           1.8.8-8.el7                                                                       rhel-7-server-rpms                                                            34 k
+ python-javapackages                                                                   noarch                                                           3.4.1-11.el7                                                                      rhel-7-server-rpms                                                            31 k
+ ttmkfdir                                                                              x86_64                                                           3.0.9-42.el7                                                                      rhel-7-server-rpms                                                            48 k
+ tzdata-java                                                                           noarch                                                           2019b-1.el7                                                                       rhel-7-server-rpms                                                           187 k
+ xorg-x11-font-utils                                                                   x86_64                                                           1:7.5-21.el7                                                                      rhel-7-server-rpms                                                           104 k
+ xorg-x11-fonts-Type1                                                                  noarch                                                           7.5-9.el7                                                                         rhel-7-server-rpms                                                           521 k
+
+Transaction Summary
+=============================================================================================================================================================================================================================================================================================================================
+Install  1 Package (+15 Dependent packages)
+
+Total download size: 37 M
+Installed size: 120 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/16): copy-jdk-configs-3.3-10.el7_5.noarch.rpm                                                                                                                                                                                                                                                      |  21 kB  00:00:00
+(2/16): giflib-4.1.6-9.el7.x86_64.rpm                                                                                                                                                                                                                                                                 |  40 kB  00:00:00
+(3/16): java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64.rpm                                                                                                                                                                                                                                           | 274 kB  00:00:00
+(4/16): gtk2-2.24.31-1.el7.x86_64.rpm                                                                                                                                                                                                                                                                 | 3.4 MB  00:00:01
+(5/16): javapackages-tools-3.4.1-11.el7.noarch.rpm                                                                                                                                                                                                                                                    |  73 kB  00:00:00
+(6/16): libICE-1.0.9-9.el7.x86_64.rpm                                                                                                                                                                                                                                                                 |  66 kB  00:00:00
+(7/16): libSM-1.2.2-2.el7.x86_64.rpm                                                                                                                                                                                                                                                                  |  39 kB  00:00:00
+(8/16): libfontenc-1.1.3-3.el7.x86_64.rpm                                                                                                                                                                                                                                                             |  31 kB  00:00:00
+(9/16): lksctp-tools-1.0.17-2.el7.x86_64.rpm                                                                                                                                                                                                                                                          |  88 kB  00:00:00
+(10/16): pcsc-lite-libs-1.8.8-8.el7.x86_64.rpm                                                                                                                                                                                                                                                        |  34 kB  00:00:00
+(11/16): python-javapackages-3.4.1-11.el7.noarch.rpm                                                                                                                                                                                                                                                  |  31 kB  00:00:00
+(12/16): ttmkfdir-3.0.9-42.el7.x86_64.rpm                                                                                                                                                                                                                                                             |  48 kB  00:00:00
+(13/16): tzdata-java-2019b-1.el7.noarch.rpm                                                                                                                                                                                                                                                           | 187 kB  00:00:01
+(14/16): xorg-x11-font-utils-7.5-21.el7.x86_64.rpm                                                                                                                                                                                                                                                    | 104 kB  00:00:00
+(15/16): xorg-x11-fonts-Type1-7.5-9.el7.noarch.rpm                                                                                                                                                                                                                                                    | 521 kB  00:00:00
+(16/16): java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64.rpm                                                                                                                                                                                                                                 |  32 MB  00:00:08
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                                                                                                                        3.8 MB/s |  37 MB  00:00:09
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libICE-1.0.9-9.el7.x86_64                                                                                                                                                                                                                                                                                1/16
+  Installing : libSM-1.2.2-2.el7.x86_64                                                                                                                                                                                                                                                                                 2/16
+  Installing : giflib-4.1.6-9.el7.x86_64                                                                                                                                                                                                                                                                                3/16
+  Installing : copy-jdk-configs-3.3-10.el7_5.noarch                                                                                                                                                                                                                                                                     4/16
+  Installing : gtk2-2.24.31-1.el7.x86_64                                                                                                                                                                                                                                                                                5/16
+  Installing : libfontenc-1.1.3-3.el7.x86_64                                                                                                                                                                                                                                                                            6/16
+  Installing : 1:xorg-x11-font-utils-7.5-21.el7.x86_64                                                                                                                                                                                                                                                                  7/16
+  Installing : pcsc-lite-libs-1.8.8-8.el7.x86_64                                                                                                                                                                                                                                                                        8/16
+  Installing : ttmkfdir-3.0.9-42.el7.x86_64                                                                                                                                                                                                                                                                             9/16
+  Installing : xorg-x11-fonts-Type1-7.5-9.el7.noarch                                                                                                                                                                                                                                                                   10/16
+  Installing : tzdata-java-2019b-1.el7.noarch                                                                                                                                                                                                                                                                          11/16
+  Installing : python-javapackages-3.4.1-11.el7.noarch                                                                                                                                                                                                                                                                 12/16
+  Installing : javapackages-tools-3.4.1-11.el7.noarch                                                                                                                                                                                                                                                                  13/16
+  Installing : lksctp-tools-1.0.17-2.el7.x86_64                                                                                                                                                                                                                                                                        14/16
+  Installing : 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64                                                                                                                                                                                                                                              15/16
+  Installing : 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64                                                                                                                                                                                                                                                       16/16
+  Verifying  : 1:java-1.8.0-openjdk-headless-1.8.0.222.b10-0.el7_6.x86_64                                                                                                                                                                                                                                               1/16
+  Verifying  : 1:java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64                                                                                                                                                                                                                                                        2/16
+  Verifying  : 1:xorg-x11-font-utils-7.5-21.el7.x86_64                                                                                                                                                                                                                                                                  3/16
+  Verifying  : libICE-1.0.9-9.el7.x86_64                                                                                                                                                                                                                                                                                4/16
+  Verifying  : giflib-4.1.6-9.el7.x86_64                                                                                                                                                                                                                                                                                5/16
+  Verifying  : xorg-x11-fonts-Type1-7.5-9.el7.noarch                                                                                                                                                                                                                                                                    6/16
+  Verifying  : lksctp-tools-1.0.17-2.el7.x86_64                                                                                                                                                                                                                                                                         7/16
+  Verifying  : libSM-1.2.2-2.el7.x86_64                                                                                                                                                                                                                                                                                 8/16
+  Verifying  : python-javapackages-3.4.1-11.el7.noarch                                                                                                                                                                                                                                                                  9/16
+  Verifying  : tzdata-java-2019b-1.el7.noarch                                                                                                                                                                                                                                                                          10/16
+  Verifying  : ttmkfdir-3.0.9-42.el7.x86_64                                                                                                                                                                                                                                                                            11/16
+  Verifying  : pcsc-lite-libs-1.8.8-8.el7.x86_64                                                                                                                                                                                                                                                                       12/16
+  Verifying  : javapackages-tools-3.4.1-11.el7.noarch                                                                                                                                                                                                                                                                  13/16
+  Verifying  : libfontenc-1.1.3-3.el7.x86_64                                                                                                                                                                                                                                                                           14/16
+  Verifying  : gtk2-2.24.31-1.el7.x86_64                                                                                                                                                                                                                                                                               15/16
+  Verifying  : copy-jdk-configs-3.3-10.el7_5.noarch                                                                                                                                                                                                                                                                    16/16
+
+Installed:
+  java-1.8.0-openjdk.x86_64 1:1.8.0.222.b10-0.el7_6
+
+Dependency Installed:
+  copy-jdk-configs.noarch 0:3.3-10.el7_5      giflib.x86_64 0:4.1.6-9.el7            gtk2.x86_64 0:2.24.31-1.el7             java-1.8.0-openjdk-headless.x86_64 1:1.8.0.222.b10-0.el7_6     javapackages-tools.noarch 0:3.4.1-11.el7     libICE.x86_64 0:1.0.9-9.el7          libSM.x86_64 0:1.2.2-2.el7
+  libfontenc.x86_64 0:1.1.3-3.el7             lksctp-tools.x86_64 0:1.0.17-2.el7     pcsc-lite-libs.x86_64 0:1.8.8-8.el7     python-javapackages.noarch 0:3.4.1-11.el7                      ttmkfdir.x86_64 0:3.0.9-42.el7               tzdata-java.noarch 0:2019b-1.el7     xorg-x11-font-utils.x86_64 1:7.5-21.el7
+  xorg-x11-fonts-Type1.noarch 0:7.5-9.el7
+
+Complete!
+[root@redhat7 ~]# java -version
+openjdk version "1.8.0_222"
+OpenJDK Runtime Environment (build 1.8.0_222-b10)
+OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
+[root@redhat7 ~]# sudo su - ti
+Last login: Sun Aug 11 01:01:51 PDT 2019 on pts/0
+[ti@redhat7 ~]$ sudo ssh-keygen -t rsa -C "Jenkins agent key"
+[sudo] password for ti:
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): ^C
+[ti@redhat7 ~]$ pwd
+/home/ti
+[ti@redhat7 ~]$ sudo ssh-keygen -t rsa -C "Jenkins agent key"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): ~/^Z
+[1]+  Stopped                 sudo ssh-keygen -t rsa -C "Jenkins agent key"
+[ti@redhat7 ~]$ cd ~
+[ti@redhat7 ~]$ ls
+[ti@redhat7 ~]$ pwd
+/home/ti
+[ti@redhat7 ~]$ pwd
+/home/ti
+[ti@redhat7 ~]$ ssh-keygen -t rsa -C "Jenkins agent key"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ti/.ssh/id_rsa):
+Created directory '/home/ti/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/ti/.ssh/id_rsa.
+Your public key has been saved in /home/ti/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:dF/3BokzI0PWDLQGkCvovJ5Naksy6tqjfFoxgq1PrZA Jenkins agent key
+The key's randomart image is:
++---[RSA 2048]----+
+|      .o..=+     |
+|      .  + .o. . |
+|   .   .. * = + .|
+|... . .. o + = o.|
+|.+.o .  S   .   o|
+| o+.o          . |
+|E ooo            |
+|oO=B             |
+|*B@o.            |
++----[SHA256]-----+
+[ti@redhat7 ~]$ ls
+[ti@redhat7 ~]$ ls -lta
+total 20
+drwx------. 2 ti   domain users  38 Aug 11 01:29 .ssh
+drwx------. 5 ti   domain users 140 Aug 11 01:28 .
+drwxr-xr-x. 6 root root          68 Aug 11 01:16 ..
+-rw-------. 1 ti   domain users 693 Aug 11 00:24 .viminfo
+-rw-------. 1 ti   domain users 167 Aug 11 00:24 .bash_history
+drwxr-xr-x. 3 ti   domain users  18 Aug 10 23:42 .config
+drwxr-xr-x. 3 ti   domain users  18 Aug 10 23:42 .cache
+-rw-------. 1 ti   domain users 231 Aug 10 23:40 .bashrc
+-rw-------. 1 ti   domain users 193 Aug 10 23:40 .bash_profile
+-rw-------. 1 ti   domain users  18 Aug 10 23:40 .bash_logout
+[ti@redhat7 ~]$ cd .ssh
+[ti@redhat7 .ssh]$ ls
+id_rsa  id_rsa.pub
+[ti@redhat7 .ssh]$ cat id_rsa.pub >> authorized_keys
+[ti@redhat7 .ssh]$ chmod 600 authorized_keys
+[ti@redhat7 .ssh]$ ls -ltra
+total 12
+drwx------. 5 ti domain users  140 Aug 11 01:28 ..
+-rw-r--r--. 1 ti domain users  399 Aug 11 01:29 id_rsa.pub
+-rw-------. 1 ti domain users 1679 Aug 11 01:29 id_rsa
+drwx------. 2 ti domain users   61 Aug 11 01:30 .
+-rw-------. 1 ti domain users  399 Aug 11 01:30 authorized_keys
+[ti@redhat7 .ssh]$ cat id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAwgZp9DGCqvvCcRbMM9kRcS4S89o6G7Dk8Mki2DwCEKSWqxpB
+DFtL4FlINKj1yZIilTF9gfiUslhMs2TZGFb4evv0vHImzYbAfepP7m12VZeajHBO
+S/WYRzIBN5W8YwPz137OcNx+CC4yKen00wpcAg0Y0r8IJNenE5AXL9EYK6gnMtQV
+oKh1ts1JLknLjl9bb5e/bQ2DWhIAFPQsgf+jzfCSwFm5LgRT6BcLwJVgWwTT/pQR
+KozYV6ZI26NwA+t8u1DPBIZ5KNkaPL24p4UGVkD5AI8ay9C83+w7P9vInUTo7Pv6
+qSrLsFB5IAg3D/aFaD7Svp+WGRaOEwIy/dqpYQIDAQABAoIBAHbXkuJ9yPmOB4VZ
+X26KkMJwZC91BY6chT5vFKa56tHi3l6jUCCPcyRRy4Zlz1bN6dzUWXnYlsu+hgyD
+wu3Dp6M83KTojpfo59K4SIlUBt1aZNGMoIiqP8GsAU7YqnFDpIHkK/K5O4ErOpKt
+uMXjXIPtHb1IQWa/qJi0817YhiOGY7Vx/LAhVTX82ZsJfh8jdt5Chw7sSJGPQzgE
+ALqFtFL5s4W+hMDcuG2hXNowBntrhVANelSfHVGE7i+9isb7hhrf78kABdiC5LWq
+ZfQcY1yVSJssAB24JleK8qiGNLExmYFO67XcNe7fq3yCH0wDEiCV4Ozx5ILp+xFf
+O9hU26ECgYEA8ikjUjgVmFcfMrv1B6RzC8K4Sz5hXeE0g9EoJXkqamdJR81qfu2Z
+QH7hFsyhRjBek3l0tSqOXWfLCJ5qo4HmV31g0yLk8FQZ5fvYDC0GaZ4oEe7wOQsJ
+u+YGCnGzU+zZ+EgyF0dqihSWvieEk6G0dsYO6BwGGvNLqpBM8uvCYk0CgYEAzR0K
+lMoLjdo22K0cUXlxHQPqOSGncXC0BxD5cToaBI3I6TnP7J4a5DQZ+EwsHd53KCyJ
+MhMXZ0Ca4TZSw6CUF+xotACm1cbgtzppI5q1+JXO9/qLIRuGhz9ASejzP4S+Y8MU
+ECvjaNxEVWdeNFyaaIFoUi97o3KI2EphmNin5WUCgYAazrEJTgod9i8O9721XeAa
+gjDSq5ItyVt96C6Qj2xBoTN8jmHmsTjQ6frTAk4sLfiaTMy9rXtbHb1dM+RMO3ob
+X1bTqL49WKIRUqLlHirikE6RRak0N2OZeGpcx595f/PVR3C8IPzLUmIppMhJa5JF
+v8EwssF+REaxGA5cqfq31QKBgQDMs0gFF+MSDY4hDhqt4RIXD/ooTELsfrrcNn+L
+FZ4zn0C8KbstfNh/mNO2Lmb05Dls+Y1uUQlRPXOUgX91xwMlIQWZZvEZdmJ72ipl
+oxgqX2/vobZKM0s+HMzPNlHUuWi87UpPnU1WMEVuKjwk66oZ09RF+SdeBoc1vH3M
+aaSd1QKBgQC6eIKUMVWUEDC8ahpYMrN34X9Eu3y5rXpK2XpxameFNYuU0HLlWwHa
+jdbbkEM2s5pSHl0AIm6KV5m04s80peBiIDRNsiTn79lmFSknXpwkYTXcBo0Pynbm
+veSMgcfXaW/2gWGLg63BwrAIKUDnnRx+w5g9tV32cL4ct03UjABirQ==
+-----END RSA PRIVATE KEY-----
+[ti@redhat7 .ssh]$ ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.5.186  netmask 255.255.255.0  broadcast 172.17.5.255
+        inet6 fe80::70d3:e4e1:66f4:6576  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:5c:b8:e7  txqueuelen 1000  (Ethernet)
+        RX packets 42297  bytes 45356334 (43.2 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 20602  bytes 3143778 (2.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 379  bytes 38676 (37.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 379  bytes 38676 (37.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[ti@redhat7 .ssh]$ git
+-bash: git: command not found
