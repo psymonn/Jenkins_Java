@@ -1,0 +1,282 @@
+login as: admin
+admin@172.17.5.186's password:
+Last login: Sat Aug 10 22:45:35 2019
+[admin@localhost ~]$ su
+Password:
+[root@localhost admin]# yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+Package sssd-1.16.4-21.el7.x86_64 already installed and latest version
+Package samba-common-4.9.1-6.el7.noarch already installed and latest version
+Package samba-common-tools-4.9.1-6.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package adcli.x86_64 0:0.8.1-9.el7 will be installed
+---> Package krb5-workstation.x86_64 0:1.15.1-37.el7_6 will be installed
+--> Processing Dependency: libkadm5(x86-64) = 1.15.1-37.el7_6 for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5clnt_mit.so.11(kadm5clnt_mit_11_MIT)(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5srv_mit.so.11(kadm5srv_mit_11_MIT)(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5clnt_mit.so.11()(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+--> Processing Dependency: libkadm5srv_mit.so.11()(64bit) for package: krb5-workstation-1.15.1-37.el7_6.x86_64
+---> Package oddjob.x86_64 0:0.31.5-4.el7 will be installed
+--> Processing Dependency: psmisc for package: oddjob-0.31.5-4.el7.x86_64
+---> Package oddjob-mkhomedir.x86_64 0:0.31.5-4.el7 will be installed
+---> Package openldap-clients.x86_64 0:2.4.44-21.el7_6 will be installed
+---> Package policycoreutils-python.x86_64 0:2.5-29.el7_6.1 will be updated
+---> Package policycoreutils-python.x86_64 0:2.5-33.el7 will be an update
+--> Processing Dependency: policycoreutils = 2.5-33.el7 for package: policycoreutils-python-2.5-33.el7.x86_64
+---> Package realmd.x86_64 0:0.16.1-11.el7 will be installed
+--> Running transaction check
+---> Package libkadm5.x86_64 0:1.15.1-37.el7_6 will be installed
+---> Package policycoreutils.x86_64 0:2.5-29.el7_6.1 will be updated
+---> Package policycoreutils.x86_64 0:2.5-33.el7 will be an update
+---> Package psmisc.x86_64 0:22.20-16.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================================================================================================================================================
+ Package                                                                             Arch                                                                Version                                                                       Repository                                                                       Size
+=============================================================================================================================================================================================================================================================================================================================
+Installing:
+ adcli                                                                               x86_64                                                              0.8.1-9.el7                                                                   rhel-7-server-rpms                                                              113 k
+ krb5-workstation                                                                    x86_64                                                              1.15.1-37.el7_6                                                               rhel-7-server-rpms                                                              816 k
+ oddjob                                                                              x86_64                                                              0.31.5-4.el7                                                                  rhel-7-server-rpms                                                               69 k
+ oddjob-mkhomedir                                                                    x86_64                                                              0.31.5-4.el7                                                                  rhel-7-server-rpms                                                               38 k
+ openldap-clients                                                                    x86_64                                                              2.4.44-21.el7_6                                                               rhel-7-server-rpms                                                              191 k
+ realmd                                                                              x86_64                                                              0.16.1-11.el7                                                                 rhel-7-server-rpms                                                              209 k
+Updating:
+ policycoreutils-python                                                              x86_64                                                              2.5-33.el7                                                                    rhel-7-server-rpms                                                              457 k
+Installing for dependencies:
+ libkadm5                                                                            x86_64                                                              1.15.1-37.el7_6                                                               rhel-7-server-rpms                                                              178 k
+ psmisc                                                                              x86_64                                                              22.20-16.el7                                                                  rhel-7-server-rpms                                                              141 k
+Updating for dependencies:
+ policycoreutils                                                                     x86_64                                                              2.5-33.el7                                                                    rhel-7-server-rpms                                                              916 k
+
+Transaction Summary
+=============================================================================================================================================================================================================================================================================================================================
+Install  6 Packages (+2 Dependent packages)
+Upgrade  1 Package  (+1 Dependent package)
+
+Total download size: 3.1 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/10): adcli-0.8.1-9.el7.x86_64.rpm                                                                                                                                                                                                                                                                  | 113 kB  00:00:01
+(2/10): krb5-workstation-1.15.1-37.el7_6.x86_64.rpm                                                                                                                                                                                                                                                   | 816 kB  00:00:01
+(3/10): libkadm5-1.15.1-37.el7_6.x86_64.rpm                                                                                                                                                                                                                                                           | 178 kB  00:00:00
+(4/10): oddjob-0.31.5-4.el7.x86_64.rpm                                                                                                                                                                                                                                                                |  69 kB  00:00:01
+(5/10): oddjob-mkhomedir-0.31.5-4.el7.x86_64.rpm                                                                                                                                                                                                                                                      |  38 kB  00:00:00
+(6/10): openldap-clients-2.4.44-21.el7_6.x86_64.rpm                                                                                                                                                                                                                                                   | 191 kB  00:00:00
+(7/10): policycoreutils-2.5-33.el7.x86_64.rpm                                                                                                                                                                                                                                                         | 916 kB  00:00:00
+(8/10): policycoreutils-python-2.5-33.el7.x86_64.rpm                                                                                                                                                                                                                                                  | 457 kB  00:00:00
+(9/10): psmisc-22.20-16.el7.x86_64.rpm                                                                                                                                                                                                                                                                | 141 kB  00:00:00
+(10/10): realmd-0.16.1-11.el7.x86_64.rpm                                                                                                                                                                                                                                                              | 209 kB  00:00:00
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                                                                                                                        741 kB/s | 3.1 MB  00:00:04
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : psmisc-22.20-16.el7.x86_64                                                                                                                                                                                                                                                                               1/12
+  Installing : oddjob-0.31.5-4.el7.x86_64                                                                                                                                                                                                                                                                               2/12
+  Installing : oddjob-mkhomedir-0.31.5-4.el7.x86_64                                                                                                                                                                                                                                                                     3/12
+  Updating   : policycoreutils-2.5-33.el7.x86_64                                                                                                                                                                                                                                                                        4/12
+  Installing : libkadm5-1.15.1-37.el7_6.x86_64                                                                                                                                                                                                                                                                          5/12
+  Installing : krb5-workstation-1.15.1-37.el7_6.x86_64                                                                                                                                                                                                                                                                  6/12
+  Updating   : policycoreutils-python-2.5-33.el7.x86_64                                                                                                                                                                                                                                                                 7/12
+  Installing : realmd-0.16.1-11.el7.x86_64                                                                                                                                                                                                                                                                              8/12
+  Installing : openldap-clients-2.4.44-21.el7_6.x86_64                                                                                                                                                                                                                                                                  9/12
+  Installing : adcli-0.8.1-9.el7.x86_64                                                                                                                                                                                                                                                                                10/12
+  Cleanup    : policycoreutils-python-2.5-29.el7_6.1.x86_64                                                                                                                                                                                                                                                            11/12
+  Cleanup    : policycoreutils-2.5-29.el7_6.1.x86_64                                                                                                                                                                                                                                                                   12/12
+  Verifying  : adcli-0.8.1-9.el7.x86_64                                                                                                                                                                                                                                                                                 1/12
+  Verifying  : policycoreutils-python-2.5-33.el7.x86_64                                                                                                                                                                                                                                                                 2/12
+  Verifying  : oddjob-0.31.5-4.el7.x86_64                                                                                                                                                                                                                                                                               3/12
+  Verifying  : krb5-workstation-1.15.1-37.el7_6.x86_64                                                                                                                                                                                                                                                                  4/12
+  Verifying  : libkadm5-1.15.1-37.el7_6.x86_64                                                                                                                                                                                                                                                                          5/12
+  Verifying  : psmisc-22.20-16.el7.x86_64                                                                                                                                                                                                                                                                               6/12
+  Verifying  : oddjob-mkhomedir-0.31.5-4.el7.x86_64                                                                                                                                                                                                                                                                     7/12
+  Verifying  : policycoreutils-2.5-33.el7.x86_64                                                                                                                                                                                                                                                                        8/12
+  Verifying  : openldap-clients-2.4.44-21.el7_6.x86_64                                                                                                                                                                                                                                                                  9/12
+  Verifying  : realmd-0.16.1-11.el7.x86_64                                                                                                                                                                                                                                                                             10/12
+  Verifying  : policycoreutils-2.5-29.el7_6.1.x86_64                                                                                                                                                                                                                                                                   11/12
+  Verifying  : policycoreutils-python-2.5-29.el7_6.1.x86_64                                                                                                                                                                                                                                                            12/12
+
+Installed:
+  adcli.x86_64 0:0.8.1-9.el7                  krb5-workstation.x86_64 0:1.15.1-37.el7_6                  oddjob.x86_64 0:0.31.5-4.el7                  oddjob-mkhomedir.x86_64 0:0.31.5-4.el7                  openldap-clients.x86_64 0:2.4.44-21.el7_6                  realmd.x86_64 0:0.16.1-11.el7
+
+Dependency Installed:
+  libkadm5.x86_64 0:1.15.1-37.el7_6                                                                                                                               psmisc.x86_64 0:22.20-16.el7
+
+Updated:
+  policycoreutils-python.x86_64 0:2.5-33.el7
+
+Dependency Updated:
+  policycoreutils.x86_64 0:2.5-33.el7
+
+Complete!
+
+[root@localhost admin]# vi /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.17.5.130    redink-dc-01.redink.com redink-dc-01
+
+[ti@redhat7 ~]$ vi /etc/resolv.conf
+# Generated by NetworkManager
+#search localdomain
+search redink.com
+#nameserver 172.17.5.2
+nameserver 172.17.5.130
+
+[root@localhost admin]# ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=128 time=22.4 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=128 time=22.7 ms
+
+[root@localhost admin]# ping redink-dc-01
+PING redink-dc-01.redink.com (172.17.5.130) 56(84) bytes of data.
+64 bytes from redink-dc-01.redink.com (172.17.5.130): icmp_seq=1 ttl=128 time=0.657 ms
+64 bytes from redink-dc-01.redink.com (172.17.5.130): icmp_seq=2 ttl=128 time=0.502 ms
+
+[root@localhost admin]# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.5.186  netmask 255.255.255.0  broadcast 172.17.5.255
+
+[root@localhost admin]# hostnamectl status
+   Static hostname: localhost.localdomain
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 8ea40e93e7c8405693cfc24b7ada7ef3
+           Boot ID: a8ff7ec93cba4e2fa2b3cc9cce989716
+    Virtualization: vmware
+  Operating System: Red Hat Enterprise Linux
+       CPE OS Name: cpe:/o:redhat:enterprise_linux:7.6:GA:server
+            Kernel: Linux 3.10.0-957.21.3.el7.x86_64
+      Architecture: x86-64
+
+root@localhost admin]# hostnamectl set-hostname redhat7
+
+[root@localhost admin]# hostnamectl status
+   Static hostname: redhat7
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 8ea40e93e7c8405693cfc24b7ada7ef3
+           Boot ID: a8ff7ec93cba4e2fa2b3cc9cce989716
+    Virtualization: vmware
+  Operating System: Red Hat Enterprise Linux
+       CPE OS Name: cpe:/o:redhat:enterprise_linux:7.6:GA:server
+            Kernel: Linux 3.10.0-957.21.3.el7.x86_64
+      Architecture: x86-64
+
+
+[root@localhost admin]# realm join --user=TI redink-dc-01.redink.com
+Password for TI:
+See: journalctl REALMD_OPERATION=r2815.2294
+realm: Couldn't join realm: Failed to join the domain
+[root@localhost admin]# realm join --user=Administrator redink-dc-01.redink.com
+Password for Administrator:
+[root@localhost admin]# realm list
+redink.com
+  type: kerberos
+  realm-name: REDINK.COM
+  domain-name: redink.com
+  configured: kerberos-member
+  server-software: active-directory
+  client-software: sssd
+  required-package: oddjob
+  required-package: oddjob-mkhomedir
+  required-package: sssd
+  required-package: adcli
+  required-package: samba-common-tools
+  login-formats: %U@redink.com
+  login-policy: allow-realm-logins
+
+[root@localhost admin]# id
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@localhost admin]# id administrator@redkink.com
+id: administrator@redkink.com: no such user
+
+[root@localhost admin]# id administrator@redkink.com
+id: administrator@redkink.com: no such user
+
+[root@localhost admin]# vi /etc/sssd/sssd.conf
+
+
+[sssd]
+domains = redink.com
+config_file_version = 2
+services = nss, pam
+
+[domain/redink.com]
+ad_server = redink-dc-01.redink.com
+ad_domain = redink.com
+krb5_realm = REDINK.COM
+realmd_tags = manages-system joined-with-adcli
+cache_credentials = True
+id_provider = ad
+krb5_store_password_if_offline = True
+default_shell = /bin/bash
+ldap_id_mapping = True
+use_fully_qualified_names = False
+#fallback_homedir = /home/%u@%d
+fallback_homedir = /home/%u
+access_provider = ad
+
+Note: use_fully_qualified_names = False will auto discover all AD without needs to put the domain in front e.g REDINK\Administrator
+
+[root@localhost sssd]# vi sssd.conf
+[root@localhost sssd]# systemctl restart sssd
+[root@localhost sssd]# systemctl daemon-reload
+[root@localhost sssd]# id ti
+uid=560801001(ti) gid=560800513(domain users) groups=560800513(domain users)
+[root@localhost sssd]# ssh ti@172.17.5.186
+ti@172.17.5.186's password:
+Last login: Sat Aug 10 23:40:12 2019 from redhat7
+[ti@redhat7 ~]$ pwd
+/home/ti
+[ti@redhat7 ~]$ sudo su
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for ti:
+ti is not in the sudoers file.  This incident will be reported.
+
+[ti@redhat7 ~]$ exit
+logout
+Connection to 172.17.5.186 closed.
+[root@localhost sssd]# id
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+
+[root@redhat7 ssh]# visudo
+## Allows people in group wheel to run all commands
+%wheel  ALL=(ALL)       ALL
+%linuxadmin     ALL=(root)      ALL, !/usr/bin/passwd root
+
+[root@localhost sssd]# cd /etc/sudoers.d
+[root@localhost sudoers.d]# ls  (empty)
+[root@localhost sudoers.d]# useradd localUser1
+[root@localhost sudoers.d]# passwd localUser1
+Changing password for user localUser1.
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+root@localhost sudoers.d]# su localUser1 -
+[localUser1@redhat7 sudoers.d]$ groups
+localUser1 wheel
+
+[localUser1@redhat7 sudoers.d]$ cat /etc/passwd
+localUser1:x:1001:1001::/home/localUser1:/bin/bash
+
+[root@redhat7 admin]# sudo su - REDINK\\TI
+Last login: Sun Aug 11 00:24:46 PDT 2019 from 172.17.5.1 on pts/1
+[ti@redhat7 ~]$ id
+uid=560801001(ti) gid=560800513(domain users) groups=560800513(domain users),560803645(linuxadmin) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+
+[ti@redhat7 ~]$ groups
+domain users linuxadmin
