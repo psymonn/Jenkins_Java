@@ -1,0 +1,215 @@
+Install git and manually install maven:
+
+http://yallalabs.com/devops/how-to-install-apache-maven-centos-7-rhel-7/
+
+
+Last login: Sun Aug 11 01:17:28 PDT 2019 on pts/2
+[root@redhat7 ~]# yum install git
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:1.8.3.1-20.el7 will be installed
+--> Processing Dependency: perl-Git = 1.8.3.1-20.el7 for package: git-1.8.3.1-20.el7.x86_64
+--> Processing Dependency: perl(Error) for package: git-1.8.3.1-20.el7.x86_64
+--> Processing Dependency: perl(Git) for package: git-1.8.3.1-20.el7.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-1.8.3.1-20.el7.x86_64
+--> Running transaction check
+---> Package perl-Error.noarch 1:0.17020-2.el7 will be installed
+---> Package perl-Git.noarch 0:1.8.3.1-20.el7 will be installed
+---> Package perl-TermReadKey.x86_64 0:2.30-20.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================================================================================================================================================
+ Package                                                                        Arch                                                                 Version                                                                          Repository                                                                        Size
+=============================================================================================================================================================================================================================================================================================================================
+Installing:
+ git                                                                            x86_64                                                               1.8.3.1-20.el7                                                                   rhel-7-server-rpms                                                               4.4 M
+Installing for dependencies:
+ perl-Error                                                                     noarch                                                               1:0.17020-2.el7                                                                  rhel-7-server-rpms                                                                32 k
+ perl-Git                                                                       noarch                                                               1.8.3.1-20.el7                                                                   rhel-7-server-rpms                                                                55 k
+ perl-TermReadKey                                                               x86_64                                                               2.30-20.el7                                                                      rhel-7-server-rpms                                                                31 k
+
+Transaction Summary
+=============================================================================================================================================================================================================================================================================================================================
+Install  1 Package (+3 Dependent packages)
+
+Total download size: 4.5 M
+Installed size: 22 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/4): perl-Error-0.17020-2.el7.noarch.rpm                                                                                                                                                                                                                                                            |  32 kB  00:00:02
+(2/4): perl-Git-1.8.3.1-20.el7.noarch.rpm                                                                                                                                                                                                                                                             |  55 kB  00:00:01
+(3/4): perl-TermReadKey-2.30-20.el7.x86_64.rpm                                                                                                                                                                                                                                                        |  31 kB  00:00:01
+(4/4): git-1.8.3.1-20.el7.x86_64.rpm                                                                                                                                                                                                                                                                  | 4.4 MB  00:00:06
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                                                                                                                        661 kB/s | 4.5 MB  00:00:06
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:perl-Error-0.17020-2.el7.noarch                                                                                                                                                                                                                                                                         1/4
+  Installing : perl-TermReadKey-2.30-20.el7.x86_64                                                                                                                                                                                                                                                                       2/4
+  Installing : git-1.8.3.1-20.el7.x86_64                                                                                                                                                                                                                                                                                 3/4
+  Installing : perl-Git-1.8.3.1-20.el7.noarch                                                                                                                                                                                                                                                                            4/4
+  Verifying  : perl-Git-1.8.3.1-20.el7.noarch                                                                                                                                                                                                                                                                            1/4
+  Verifying  : 1:perl-Error-0.17020-2.el7.noarch                                                                                                                                                                                                                                                                         2/4
+  Verifying  : git-1.8.3.1-20.el7.x86_64                                                                                                                                                                                                                                                                                 3/4
+  Verifying  : perl-TermReadKey-2.30-20.el7.x86_64                                                                                                                                                                                                                                                                       4/4
+
+Installed:
+  git.x86_64 0:1.8.3.1-20.el7
+
+Dependency Installed:
+  perl-Error.noarch 1:0.17020-2.el7                                                                       perl-Git.noarch 0:1.8.3.1-20.el7                                                                       perl-TermReadKey.x86_64 0:2.30-20.el7
+
+Complete!
+[root@redhat7 ~]# git -version
+Unknown option: -version
+usage: git [--version] [--help] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+[root@redhat7 ~]# git --version
+git version 1.8.3.1
+[root@redhat7 ~]# yum install maven
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+No package maven available.
+Error: Nothing to do
+[root@redhat7 ~]# yum install maven
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+No package maven available.
+Error: Nothing to do
+[root@redhat7 ~]# cd /home/ti
+[root@redhat7 ti]# wget https://www-us.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz -P /tmp
+--2019-08-11 02:03:44--  https://www-us.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+Resolving www-us.apache.org (www-us.apache.org)... 40.79.78.1
+Connecting to www-us.apache.org (www-us.apache.org)|40.79.78.1|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9063587 (8.6M) [application/x-gzip]
+Saving to: ‘/tmp/apache-maven-3.6.0-bin.tar.gz’
+
+100%[===================================================================================================================================================================================================================================================================================>] 9,063,587   2.37MB/s   in 3.7s
+
+2019-08-11 02:03:49 (2.37 MB/s) - ‘/tmp/apache-maven-3.6.0-bin.tar.gz’ saved [9063587/9063587]
+
+[root@redhat7 ti]# cd /home/ti
+[root@redhat7 ti]# ls
+remoting  remoting.jar
+[root@redhat7 ti]# cd /tmp
+[root@redhat7 tmp]# ls apach*
+apache-maven-3.6.0-bin.tar.gz
+[root@redhat7 tmp]# sudo tar -xzvf /tmp/apache-maven-3.6.0-bin.tar.gz -C /opt
+apache-maven-3.6.0/README.txt
+apache-maven-3.6.0/LICENSE
+apache-maven-3.6.0/NOTICE
+apache-maven-3.6.0/lib/
+apache-maven-3.6.0/lib/animal-sniffer-annotations.license
+apache-maven-3.6.0/lib/checker-compat-qual.license
+apache-maven-3.6.0/lib/jcl-over-slf4j.license
+apache-maven-3.6.0/lib/jsr250-api.license
+apache-maven-3.6.0/lib/org.eclipse.sisu.inject.license
+apache-maven-3.6.0/lib/org.eclipse.sisu.plexus.license
+apache-maven-3.6.0/lib/slf4j-api.license
+apache-maven-3.6.0/lib/jansi-native/
+apache-maven-3.6.0/lib/jansi-native/freebsd32/
+apache-maven-3.6.0/lib/jansi-native/freebsd64/
+apache-maven-3.6.0/lib/jansi-native/linux32/
+apache-maven-3.6.0/lib/jansi-native/linux64/
+apache-maven-3.6.0/lib/jansi-native/osx/
+apache-maven-3.6.0/lib/jansi-native/windows32/
+apache-maven-3.6.0/lib/jansi-native/windows64/
+apache-maven-3.6.0/lib/jansi-native/freebsd32/libjansi.so
+apache-maven-3.6.0/lib/jansi-native/freebsd64/libjansi.so
+apache-maven-3.6.0/lib/jansi-native/linux32/libjansi.so
+apache-maven-3.6.0/lib/jansi-native/linux64/libjansi.so
+apache-maven-3.6.0/lib/jansi-native/osx/libjansi.jnilib
+apache-maven-3.6.0/lib/jansi-native/windows32/jansi.dll
+apache-maven-3.6.0/lib/jansi-native/windows64/jansi.dll
+apache-maven-3.6.0/bin/m2.conf
+apache-maven-3.6.0/bin/mvn.cmd
+apache-maven-3.6.0/bin/mvnDebug.cmd
+apache-maven-3.6.0/bin/mvn
+apache-maven-3.6.0/bin/mvnDebug
+apache-maven-3.6.0/bin/mvnyjp
+apache-maven-3.6.0/conf/
+apache-maven-3.6.0/conf/logging/
+apache-maven-3.6.0/conf/logging/simplelogger.properties
+apache-maven-3.6.0/conf/settings.xml
+apache-maven-3.6.0/conf/toolchains.xml
+apache-maven-3.6.0/lib/ext/
+apache-maven-3.6.0/lib/jansi-native/
+apache-maven-3.6.0/lib/ext/README.txt
+apache-maven-3.6.0/lib/jansi-native/README.txt
+apache-maven-3.6.0/boot/plexus-classworlds-2.5.2.jar
+apache-maven-3.6.0/lib/maven-embedder-3.6.0.jar
+apache-maven-3.6.0/lib/maven-settings-3.6.0.jar
+apache-maven-3.6.0/lib/plexus-utils-3.1.0.jar
+apache-maven-3.6.0/lib/maven-settings-builder-3.6.0.jar
+apache-maven-3.6.0/lib/maven-builder-support-3.6.0.jar
+apache-maven-3.6.0/lib/plexus-interpolation-1.25.jar
+apache-maven-3.6.0/lib/plexus-component-annotations-1.7.1.jar
+apache-maven-3.6.0/lib/plexus-sec-dispatcher-1.4.jar
+apache-maven-3.6.0/lib/plexus-cipher-1.7.jar
+apache-maven-3.6.0/lib/maven-core-3.6.0.jar
+apache-maven-3.6.0/lib/maven-model-3.6.0.jar
+apache-maven-3.6.0/lib/maven-repository-metadata-3.6.0.jar
+apache-maven-3.6.0/lib/maven-artifact-3.6.0.jar
+apache-maven-3.6.0/lib/commons-lang3-3.8.1.jar
+apache-maven-3.6.0/lib/maven-plugin-api-3.6.0.jar
+apache-maven-3.6.0/lib/org.eclipse.sisu.plexus-0.3.3.jar
+apache-maven-3.6.0/lib/cdi-api-1.0.jar
+apache-maven-3.6.0/lib/jsr250-api-1.0.jar
+apache-maven-3.6.0/lib/javax.inject-1.jar
+apache-maven-3.6.0/lib/org.eclipse.sisu.inject-0.3.3.jar
+apache-maven-3.6.0/lib/maven-model-builder-3.6.0.jar
+apache-maven-3.6.0/lib/maven-resolver-provider-3.6.0.jar
+apache-maven-3.6.0/lib/maven-resolver-api-1.3.1.jar
+apache-maven-3.6.0/lib/maven-resolver-spi-1.3.1.jar
+apache-maven-3.6.0/lib/maven-resolver-util-1.3.1.jar
+apache-maven-3.6.0/lib/maven-resolver-impl-1.3.1.jar
+apache-maven-3.6.0/lib/slf4j-api-1.7.25.jar
+apache-maven-3.6.0/lib/maven-shared-utils-3.2.1.jar
+apache-maven-3.6.0/lib/commons-io-2.5.jar
+apache-maven-3.6.0/lib/guice-4.2.1-no_aop.jar
+apache-maven-3.6.0/lib/aopalliance-1.0.jar
+apache-maven-3.6.0/lib/guava-25.1-android.jar
+apache-maven-3.6.0/lib/jsr305-3.0.2.jar
+apache-maven-3.6.0/lib/checker-compat-qual-2.0.0.jar
+apache-maven-3.6.0/lib/error_prone_annotations-2.1.3.jar
+apache-maven-3.6.0/lib/j2objc-annotations-1.1.jar
+apache-maven-3.6.0/lib/animal-sniffer-annotations-1.14.jar
+apache-maven-3.6.0/lib/commons-cli-1.4.jar
+apache-maven-3.6.0/lib/maven-compat-3.6.0.jar
+apache-maven-3.6.0/lib/wagon-provider-api-3.2.0.jar
+apache-maven-3.6.0/lib/wagon-http-3.2.0-shaded.jar
+apache-maven-3.6.0/lib/jcl-over-slf4j-1.7.25.jar
+apache-maven-3.6.0/lib/wagon-file-3.2.0.jar
+apache-maven-3.6.0/lib/maven-resolver-connector-basic-1.3.1.jar
+apache-maven-3.6.0/lib/maven-resolver-transport-wagon-1.3.1.jar
+apache-maven-3.6.0/lib/maven-slf4j-provider-3.6.0.jar
+apache-maven-3.6.0/lib/jansi-1.17.1.jar
+[root@redhat7 tmp]# sudo ln -s /opt/apache-maven-3.6.0/ /opt/maven
+[root@redhat7 tmp]# cd /etc/profile.d/
+[root@redhat7 profile.d]# vi maven.sh
+[root@redhat7 profile.d]# cat maven.sh
+export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+[root@redhat7 profile.d]# source /etc/profile.d/maven.sh
+[root@redhat7 profile.d]# mvn -version
+Apache Maven 3.6.0 (97c98ec64a1fdfee7767ce5ffb20918da4f719f3; 2018-10-24T11:41:47-07:00)
+Maven home: /opt/maven
+Java version: 1.8.0_222, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-957.21.3.el7.x86_64", arch: "amd64", family: "unix"
+[root@redhat7 profile.d]#
+
+
+Update Jenkins slave:
+tool locations:
+git -> /usr/bin/git
+maven -> /opt/maven/bin
