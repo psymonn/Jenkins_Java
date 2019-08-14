@@ -1,0 +1,548 @@
+
+Enabled   
+Name  ↓
+Version   
+Previously installed version   
+Uninstall   
+	
+Active Directory
+This plugin enables authentication through Active Directory.
+2.12	
+Downgrade to 2.11
+	
+Ant Plugin
+Adds Apache Ant support to Jenkins
+1.9	
+Downgrade to 1.8
+	
+Apache HttpComponents Client 4.x API Plugin
+Bundles Apache HttpComponents Client 4.x and allows it to be used by Jenkins plugins.
+4.5.5-3.0		
+	
+Artifactory Plugin
+This plugin allows your build jobs to deploy artifacts and resolve dependencies to and from Artifactory, and then have them linked to the build job that created them. The plugin includes a vast collection of features, including a rich pipeline API library and release management for Maven and Gradle builds with Staging and Promotion.
+3.3.2		
+	
+Authentication Tokens API Plugin
+This plugin provides an API for converting credentials into authentication tokens in Jenkins.
+1.3		
+	
+Backup plugin
+Backup or restore your Hudson configuration files
+1.6.1		
+	
+bouncycastle API Plugin
+This plugin provides an stable API to Bouncy Castle related tasks.
+2.17	
+Downgrade to 2.16.3
+	
+Branch API
+This plugin provides an API for multiple branch based projects.
+2.1.2	
+Downgrade to 2.0.20
+	
+Build Timeout
+This plugin allows builds to be automatically terminated after the specified amount of time has elapsed.
+1.19		
+	
+built-on-column
+Shows the actual node that a job was built on
+1.1		
+	
+ChuckNorris Plugin
+ChuckNorris plugin displays a picture of Chuck Norris (instead of Jenkins the butler) and a random Chuck Norris 'The Programmer' fact on each build page.
+1.2	
+Downgrade to 1.1
+	
+Command Agent Launcher Plugin
+Allows agents to be launched using a specified command.
+1.3	
+Downgrade to 1.2
+	
+Conditional BuildStep
+A buildstep wrapping any number of other buildsteps, controlling their execution based on a defined condition (e.g. BuildParameter).
+1.3.6		
+	
+Config File Provider Plugin
+Ability to provide configuration files (e.g. settings.xml for maven, XML, groovy, custom files,...) loaded through the UI which will be copied to the job workspace.
+3.6.2		
+	
+Credentials
+This plugin allows you to store credentials in Jenkins.
+2.1.18		
+	
+Credentials Binding
+Allows credentials to be bound to environment variables for use from miscellaneous build steps.
+1.18	
+Downgrade to 1.17
+	
+Discard Old Build plugin
+This plugin enables detail configuration to discard old builds like using logfile size / status / days/ intervals days / build num / logfile regular expression.
+1.05		
+	
+Display URL API
+Provides the DisplayURLProvider extension point to provide alternate URLs for use in notifications
+2.3.0	
+Downgrade to 2.2.0
+	
+Docker Commons
+Provides the common shared functionality for various Docker-related plugins.
+1.13		
+	
+Docker Pipeline
+Build and use Docker containers from pipelines.
+1.17		
+	
+Durable Task
+Library offering an extension point for processes which can run outside of Jenkins yet be monitored.
+1.29	
+Downgrade to 1.28
+	
+Email Extension
+This plugin is a replacement for Jenkins's email publisher. It allows to configure every aspect of email notifications: when an email is sent, who should receive it and what the email says
+2.65	
+Downgrade to 2.63
+	
+EnvInject API
+Stores shared logic for Environment Injection management
+1.5		
+	
+Environment Injector
+This plugin makes it possible to set an environment for the builds.
+2.1.6		
+	
+External Monitor Job Type Plugin
+Adds the ability to monitor the result of externally executed jobs
+1.7		
+	
+Folders
+This plugin allows users to create "folders" to organize jobs. Users can define custom taxonomies (like by project type, organization type etc). Folders are nestable and you can define views within folders. Maintained by CloudBees, Inc.
+6.7	
+Downgrade to 6.5.1
+	
+Form element path plugin
+Adds Path designators to form elements to simplify Selenium testing of Jenkins.
+1.8		
+	
+Git
+This plugin integrates Git with Jenkins.
+3.9.3	
+Downgrade to 3.9.1
+	
+Git client
+Utility plugin for Git support in Jenkins
+2.7.6	
+Downgrade to 2.7.4
+	
+GIT server
+Allows Jenkins to act as a Git server.
+1.7		
+	
+GitHub API Plugin
+This plugin provides GitHub API for other plugins.
+1.95	
+Downgrade to 1.92
+	
+GitHub Branch Source
+Multibranch projects and organization folders from GitHub. Maintained by CloudBees, Inc.
+2.4.2	
+Downgrade to 2.4.1
+	
+GitHub plugin
+This plugin integrates GitHub to Jenkins.
+1.29.4	
+Downgrade to 1.29.3
+	
+Gradle
+This plugin allows Jenkins to invoke Gradle build scripts directly.
+1.30	
+Downgrade to 1.29
+	
+HashiCorp Vault
+Jenkins plugin to populate environment variables from secrets stored in HashiCorp's Vault
+2.2.0	
+Downgrade to 2.1.1
+	
+HTML Publisher plugin
+This plugin publishes HTML reports.
+1.18	
+Downgrade to 1.17
+	
+Hudson Post build task
+This plugin allows to execute a batch/shell task depending on the build log output.
+1.8		
+	
+Icon Shim Plugin
+Allows plugins make full use of the <l:icon> layout tag when running on newer versions of Jenkins, while still being compatible with older versions.
+2.0.3		
+	
+Ivy Plugin
+This plugin allows Jenkins to automatically configure project dependencies using the Ivy dependency management system.
+2.1		
+	
+Jackson 2 API
+This plugin exposes the Jackson 2 JSON APIs to other Jenkins plugins.
+2.9.8	
+Downgrade to 2.9.7.1
+	
+Javadoc Plugin
+1.5	
+Downgrade to 1.4
+	
+JavaScript GUI Lib: ACE Editor bundle plugin
+JavaScript GUI Lib: ACE Editor bundle plugin.
+1.1		
+	
+JavaScript GUI Lib: Handlebars bundle plugin
+JavaScript GUI Lib: Handlebars bundle plugin.
+1.1.1		
+	
+JavaScript GUI Lib: jQuery bundles (jQuery and jQuery UI) plugin
+JavaScript GUI Lib: jQuery bundles (jQuery and jQuery UI) plugin.
+1.2.1		
+	
+JavaScript GUI Lib: Moment.js bundle plugin
+JavaScript GUI Lib: Moment.js bundle plugin.
+1.1.1		
+	
+Job Restrictions Plugin
+Allows restricting execution of jobs on nodes depending on criterias like name pattern, ownership, etc. Also can restrict job triggering by other jobs and users.
+0.8		
+	
+jQuery plugin
+This plugin provides an stable version of jQuery Javascript Library
+1.12.4-0		
+	
+jQuery UI plugin
+This plugin allows you to use jQuery UI on view descriptions.
+1.0.2		
+	
+JSch dependency
+Jenkins plugin that brings the JSch library as a plugin dependency, and provides an SSHAuthenticatorFactory for using JSch with the ssh-credentials plugin.
+0.1.55	
+Downgrade to 0.1.54.2
+	
+JUnit
+Allows JUnit-format test results to be published.
+1.27	
+Downgrade to 1.26.1
+	
+LDAP Plugin
+Adds LDAP authentication to Jenkins
+1.20		
+	
+Lockable Resources
+This plugin allows to define external resources (such as printers, phones, computers) that can be locked by builds. If a build requires an external resource which is already locked, it will wait for the resource to be free.
+2.4		
+	
+Mailer
+This plugin allows you to configure email notifications for build results
+1.23	
+Downgrade to 1.22
+	
+MapDB API Plugin
+This plugin provides a shared dependency on the MapDB library so that other plugins can co-operate when using this library.
+1.0.9.0		
+	
+Matrix Authorization Strategy
+Offers matrix-based security authorization strategies (global and per-project).
+2.3		
+	
+Matrix Project Plugin
+Multi-configuration (matrix) project type.
+1.14	
+Downgrade to 1.13
+	
+Maven Integration
+This plug-in provides, for better and for worse, a deep integration of Jenkins and Maven: Automatic triggers between projects depending on SNAPSHOTs, automated configuration of various Jenkins publishers (Junit, ...).
+3.2	
+Downgrade to 3.1.2
+	
+MSBuild Plugin
+This plugin makes it possible to build a Visual Studio project (.proj) and solution files (.sln).
+1.29		
+	
+MSTest plugin
+This plugin converts MSTest TRX test reports into JUnit XML reports so it can be integrated with Hudson's JUnit features.
+1.0.0	
+Downgrade to 0.23
+	
+MSTestRunner plugin
+This plugin run MSTest command line tool to execute unit tests for .NET projects.
+1.3.0		
+	
+Multijob plugin
+This plugin is a MultiJob plugin.
+1.32		
+	
+Node and Label parameter plugin
+The node and label parameter plugin allows to dynamically select the node on which a job should be executed.
+1.7.2		
+	
+NUnit
+This plugin transforms NUnit test reports so they can be recorded by Jenkins' JUnit features.
+0.24	
+Downgrade to 0.23
+	
+Oracle Java SE Development Kit Installer
+Allows the Oracle Java SE Development Kit (JDK) to be installed via download from Oracle's website.
+1.2	
+Downgrade to 1.1
+	
+OWASP Markup Formatter Plugin
+Uses the OWASP Java HTML Sanitizer to allow safe-seeming HTML markup to be entered in project descriptions and the like.
+1.5		
+	
+PAM Authentication
+Adds Unix Pluggable Authentication Module (PAM) support to Jenkins
+1.4	
+Downgrade to 1.3
+	
+Parameterized Trigger plugin
+2.35.2		
+	
+Pipeline
+A suite of plugins that lets you orchestrate automation, simple or complex. See Pipeline as Code with Jenkins for more details.
+2.6	
+Downgrade to 2.5
+	
+Pipeline Graph Analysis
+Provides a REST API to access pipeline and pipeline run data.
+1.9	
+Downgrade to 1.7
+	
+Pipeline: API
+Plugin that defines Pipeline API.
+2.33	
+Downgrade to 2.29
+	
+Pipeline: Basic Steps
+Commonly used steps for Pipelines.
+2.14	
+Downgrade to 2.13
+	
+Pipeline: Build Step
+Adds the Pipeline step build to trigger builds of other jobs.
+2.7		
+	
+Pipeline: Declarative
+An opinionated, declarative Pipeline.
+1.3.6	
+Downgrade to 1.3.4.1
+	
+Pipeline: Declarative Agent API
+Replaced by Pipeline: Declarative Extension Points API plugin.
+1.1.1		
+	
+Pipeline: Declarative Extension Points API
+APIs for extension points used in Declarative Pipelines.
+1.3.6	
+Downgrade to 1.3.4.1
+	
+Pipeline: GitHub Groovy Libraries
+Allows Pipeline Grrovy libraries to be loaded on the fly from GitHub.
+1.0		
+	
+Pipeline: Groovy
+Pipeline execution engine based on continuation passing style transformation of Groovy scripts.
+2.64	
+Downgrade to 2.62
+	
+Pipeline: Input Step
+Adds the Pipeline step input to wait for human input or approval.
+2.9	
+Downgrade to 2.8
+	
+Pipeline: Job
+Defines a new job type for pipelines and provides their generic user interface.
+2.32	
+Downgrade to 2.31
+	
+Pipeline: Milestone Step
+Plugin that provides the milestone step
+1.3.1		
+	
+Pipeline: Model API
+Model API for Declarative Pipeline.
+1.3.6	
+Downgrade to 1.3.4.1
+	
+Pipeline: Multibranch
+Enhances Pipeline plugin to handle branches better by automatically grouping builds from different branches.
+2.21	
+Downgrade to 2.20
+	
+Pipeline: Nodes and Processes
+Pipeline steps locking agents and workspaces, and running external processes that may survive a Jenkins restart or slave reconnection.
+2.29	
+Downgrade to 2.28
+	
+Pipeline: REST API
+Provides a REST API to access pipeline and pipeline run data.
+2.10		
+	
+Pipeline: SCM Step
+Adds a Pipeline step to check out or update working sources from various SCMs (version control).
+2.7	
+Downgrade to 2.6
+	
+Pipeline: Shared Groovy Libraries
+Shared libraries for Pipeline scripts.
+2.13	
+Downgrade to 2.12
+	
+Pipeline: Stage Step
+Adds the Pipeline step stage to delineate portions of a build.
+2.3		
+	
+Pipeline: Stage Tags Metadata
+Library plugin for Pipeline stage tag metadata.
+1.3.6	
+Downgrade to 1.3.4.1
+	
+Pipeline: Stage View
+Pipeline Stage View Plugin.
+2.10		
+	
+Pipeline: Step API
+API for asynchronous build step primitive.
+2.19	
+Downgrade to 2.18
+	
+Pipeline: Supporting APIs
+Common utility implementations to build Pipeline Plugin
+3.2	
+Downgrade to 3.1
+	
+Plain Credentials Plugin
+Allows use of plain strings and files as credentials.
+1.5	
+Downgrade to 1.4
+	
+PowerShell plugin
+This plugin allows Jenkins to invoke Windows PowerShell as build scripts.
+1.3		
+	
+promoted builds
+This plugin implements a "promoted build" feature where a build of one job can be marked as "promoted" when it passes certain criteria.
+3.2		
+	
+Purge Job History Plugin
+This plugin provides the ability to purge all the build records of a job either via a CLI command or via the UI.
+1.1		
+	
+Resource Disposer
+Dispose resources asynchronously. Utility plugin for resources that require more retries or take a long time to delete.
+0.12		
+	
+Role-based Authorization Strategy
+Enables user authorization using a Role-Based strategy. Roles can be defined globally or for particular jobs or nodes selected by regular expressions.
+2.10	
+Downgrade to 2.9.0
+	
+Run Condition Plugin
+Define conditions for the execution of build steps
+1.2		
+	
+SCM API
+This plugin provides a new enhanced API for interacting with SCM systems.
+2.3.0	
+Downgrade to 2.2.7
+	
+Scoring Load Balancer
+Decides a build run on which node by scoring nodes.
+1.0.1		
+	
+Script Security
+Allows Jenkins administrators to control what in-process scripts can be run by less-privileged users.
+1.54	
+Downgrade to 1.51
+	
+Selection tasks plugin
+This plugin adds new variable. You may select several tasks (for example, Selenium tests) for run.
+1.0		
+	
+Selenium
+3.12.0		
+	
+Selenium Builder plugin
+Jenkins plugin which invokes scripts using the Selenium Builder interpreter
+1.14		
+	
+Selenium HTML report
+This is an jenkins plugin to visualize the results of selenium tests
+1.0		
+	
+SeleniumRC plugin
+This plugin allows you to create Selenium server instance for each project build.
+1.0		
+	
+Service Now
+Provides an interface to the Service Now API in Jenkins workflow steps
+0.0.3		
+	
+SSH Credentials
+Allows storage of SSH credentials in Jenkins
+1.15	
+Downgrade to 1.14
+	
+SSH Slaves
+Allows to launch agents over SSH, using a Java implementation of the SSH protocol.
+1.29.4	
+Downgrade to 1.29.1
+	
+Structs
+Library plugin for DSL plugins that need names for Jenkins objects.
+1.17	
+Downgrade to 1.14
+	
+Subversion
+2.12.1	
+Downgrade to 2.11.1
+	
+Team Foundation Server Plug-in
+5.142.0		
+	
+TestingBot plugin
+This plugin integrates videos/screenshots of your TestingBot.com Selenium tests
+1.13		
+	
+ThinBackup
+Backups the most important global and job specific configuration files.
+1.9		
+	
+Throttle Concurrent Builds Plug-in
+This plugin allows for throttling the number of concurrent builds of a project running per node or globally.
+2.0.1		
+	
+Timestamper
+Adds timestamps to the Console Output
+1.9	
+Downgrade to 1.8.10
+	
+Token Macro
+This plug-in adds reusable macro expansion capability for other plug-ins to use.
+2.7	
+Downgrade to 2.6
+	
+Trilead API
+This plugin provides access to Trilead without having to bundle Trilead in Jenkins core
+1.0.1		
+	
+VMware Lab Manager Slaves plugin
+This plugin provides a way to manage Virtual Machines that are controlled by VMware's Lab Manager product.
+0.2.8		
+	
+VS Team Services Continuous Deployment
+Trigger a release in TFS or VS Team Services, when a build completes successfully
+1.3		
+	
+WMI Windows Agents Plugin
+Allows you to setup agents on Windows machines over Windows Management Instrumentation (WMI)
+1.4	
+Downgrade to 1.3.1
+	
+Workspace Cleanup Plugin
+This plugin deletes the project workspace when invoked.
+0.37	
+Downgrade to 0.36
