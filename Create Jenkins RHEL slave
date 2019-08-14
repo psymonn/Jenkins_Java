@@ -1,3 +1,7 @@
+Must read to understand global configuration of using tool locations:
+https://stackoverflow.com/questions/25536875/relevance-of-specifying-tool-locations-in-jenkins-node-configuration
+
+ssh jenkins slave red hat instruction:
 http://yallalabs.com/devops/how-to-add-linux-slave-node-agent-node-jenkins/
 
 login as: administrator
