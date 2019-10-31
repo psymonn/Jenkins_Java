@@ -1,3 +1,6 @@
+Excute a template via REST API:
+http://172.17.5.162:8090/api/v2/job_templates/AnsibleTower1_Template_file_creation/launch/
+
 Reference:
 https://github.com/ansible/awx/tree/devel/awxkit/awxkit/cli
 
