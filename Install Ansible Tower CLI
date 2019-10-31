@@ -1,3 +1,6 @@
+Trick and Tips:
+https://docs.ansible.com/ansible-tower/latest/html/administration/tipsandtricks.html
+
 Excute a template via REST API:
 http://172.17.5.162:8090/api/v2/job_templates/AnsibleTower1_Template_file_creation/launch/
 http://172.17.5.162:8090/api/v2/job_templates/10/launch/
