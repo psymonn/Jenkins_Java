@@ -1086,4 +1086,5 @@ awx job_templates: too few arguments
 
 [root@redhat7 ~]# awx --conf.host http://172.17.5.162:8090 --conf.username admin --conf.password password --conf.insecure job_templates launch AnsibleTower1_Template_file_creation --monitor
 
-
+user this to ssh to execute the command:
+https://www.linuxtechi.com/execute-linux-commands-remote-system-over-ssh/
