@@ -1,0 +1,1089 @@
+Reference:
+https://github.com/ansible/awx/tree/devel/awxkit/awxkit/cli
+
+-----------------------------
+Install AWX client:
+-------------------------------
+Find the release version that match your AWX server.
+Login to AWX server then following this:
+
+[root@redhat7 ~]# yum install python-pip
+Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
+Resolving Dependencies
+--> Running transaction check
+---> Package python2-pip.noarch 0:8.1.2-10.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================================================================================================================================================================================
+ Package                                                                         Arch                                                                       Version                                                                           Repository                                                                Size
+=============================================================================================================================================================================================================================================================================================================================
+Installing:
+ python2-pip                                                                     noarch                                                                     8.1.2-10.el7                                                                      epel                                                                     1.7 M
+
+Transaction Summary
+=============================================================================================================================================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 1.7 M
+Installed size: 7.2 M
+Is this ok [y/d/N]: y
+Downloading packages:
+python2-pip-8.1.2-10.el7.noarch.rpm                                                                                                                                                                                                                                                                   | 1.7 MB  00:00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python2-pip-8.1.2-10.el7.noarch                                                                                                                                                                                                                                                                           1/1
+  Verifying  : python2-pip-8.1.2-10.el7.noarch                                                                                                                                                                                                                                                                           1/1
+
+Installed:
+  python2-pip.noarch 0:8.1.2-10.el7
+
+Complete!
+[root@redhat7 ~]# pip install "https://github.com/ansible/awx/archive/7.0.0.tar.gz#egg=awxkit&subdirectory=awxkit"
+Collecting awxkit from https://github.com/ansible/awx/archive/7.0.0.tar.gz#egg=awxkit&subdirectory=awxkit
+  Downloading https://github.com/ansible/awx/archive/7.0.0.tar.gz
+     | 12.3MB 5.9MB/s
+Requirement already satisfied (use --upgrade to upgrade): PyYAML in /usr/lib64/python2.7/site-packages (from awxkit)
+Requirement already satisfied (use --upgrade to upgrade): requests in /usr/lib/python2.7/site-packages (from awxkit)
+Requirement already satisfied (use --upgrade to upgrade): six in /usr/lib/python2.7/site-packages (from awxkit)
+Installing collected packages: awxkit
+  Running setup.py install for awxkit ... done
+Successfully installed awxkit-7.0.0
+You are using pip version 8.1.2, however version 19.3.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+
+[root@redhat7 ~]# awx --help
+usage: awx [--help] [--version] [--conf.host https://example.awx.org]
+           [--conf.token TEXT] [--conf.username TEXT] [--conf.password TEXT]
+           [-k] [-f {yaml,json,jq,human}] [--filter TEXT]
+           [--conf.color BOOLEAN] [-v]
+           resource ...
+
+positional arguments:
+  resource
+    login               authenticate and retrieve an OAuth2 token
+    config              print current configuration values
+
+optional arguments:
+  --help                prints usage information for the awx tool
+  --version             display awx CLI version
+
+authentication:
+  --conf.host https://example.awx.org
+  --conf.token TEXT     an OAuth2.0 token (get one by using `awx login`)
+  --conf.username TEXT
+  --conf.password TEXT
+  -k, --conf.insecure   Allow insecure server connections when using SSL
+
+output formatting:
+  -f {yaml,json,jq,human}, --conf.format {yaml,json,jq,human}
+                        specify an output format
+  --filter TEXT         specify an output filter (only valid with jq or human
+                        format)
+  --conf.color BOOLEAN  Display colorized output. Defaults to True
+  -v, --verbose         print debug-level logs, including requests made
+
+awx: too few arguments
+
+
+[root@redhat7 ~]# awx config
+{
+     "credentials": {
+          "default": {
+               "username": "admin",
+               "password": "password"
+          }
+     },
+     "token": "",
+     "base_url": "https://127.0.0.1:443",
+     "use_sessions": false
+}
+
+
+[root@redhat7 ~]# awx --conf.host http://172.17.5.162:8090 --conf.username admin --conf.password password --conf.insecure -v
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): 172.17.5.162
+DEBUG:requests.packages.urllib3.connectionpool:"GET /api/ HTTP/1.1" 200 157
+DEBUG:awxkit.api.client:"GET http://172.17.5.162:8090/api/" elapsed: 0:00:00.070142
+DEBUG:awxkit.api.registry:Retrieved <class 'awxkit.api.pages.api.ApiV2'> by url: /api/v2/
+DEBUG:requests.packages.urllib3.connectionpool:"GET /api/v2/ HTTP/1.1" 200 1688
+DEBUG:awxkit.api.client:"GET http://172.17.5.162:8090/api/v2/" elapsed: 0:00:00.071508
+usage: awx [--help] [--version] [--conf.host https://example.awx.org]
+           [--conf.token TEXT] [--conf.username TEXT] [--conf.password TEXT]
+           [-k] [-f {yaml,json,jq,human}] [--filter TEXT]
+           [--conf.color BOOLEAN] [-v]
+           resource ...
+
+positional arguments:
+  resource
+    login               authenticate and retrieve an OAuth2 token
+    config              print current configuration values
+    job_templates (job_template)
+    metrics
+    job_events
+    inventory_scripts (inventory_script)
+    labels (label)
+    schedules (schedule)
+    workflow_job_nodes
+    instances (instance)
+    instance_groups (instance_group)
+    credential_types (credential_type)
+    teams (team)
+    inventory_updates (inventory_update)
+    system_jobs
+    workflow_jobs (workflow_job)
+    ad_hoc_commands (ad_hoc)
+    project_updates (project_update)
+    ping
+    inventory (inventories)
+    config
+    credential_input_sources
+    inventory_sources (inventory_source)
+    jobs (job)
+    users (user)
+    organizations (organization)
+    notification_templates (notification_template)
+    tokens
+    unified_jobs
+    applications (application)
+    groups (group)
+    unified_job_templates
+    credentials (credential)
+    workflow_approvals
+    workflow_job_template_nodes (node)
+    projects (project)
+    me
+    workflow_job_templates (workflow)
+    roles (role)
+    notifications
+    settings (setting)
+    system_job_templates
+    hosts (host)
+    activity_stream
+
+optional arguments:
+  --help                prints usage information for the awx tool
+  --version             display awx CLI version
+
+authentication:
+  --conf.host https://example.awx.org
+  --conf.token TEXT     an OAuth2.0 token (get one by using `awx login`)
+  --conf.username TEXT
+  --conf.password TEXT
+  -k, --conf.insecure   Allow insecure server connections when using SSL
+
+output formatting:
+  -f {yaml,json,jq,human}, --conf.format {yaml,json,jq,human}
+                        specify an output format
+  --filter TEXT         specify an output filter (only valid with jq or human
+                        format)
+  --conf.color BOOLEAN  Display colorized output. Defaults to True
+  -v, --verbose         print debug-level logs, including requests made
+
+awx: too few arguments
+
+argument resource: invalid choice
+[root@redhat7 ~]# awx --conf.host http://172.17.5.162:8090 --conf.username admin --conf.password password --conf.insecure job_templates
+usage: awx job_templates [-h] action ...
+
+positional arguments:
+  action
+    create
+    list
+    get
+    modify
+    delete
+    associate
+    launch
+    disassociate
+
+optional arguments:
+  -h, --help    show this help message and exit
+
+awx job_templates: too few arguments
+
+
+
+[root@redhat7 ~]# awx --conf.host http://172.17.5.162:8090 --conf.username admin --conf.password password --conf.insecure job_templates list
+{
+     "count": 5,
+     "next": null,
+     "results": [
+          {
+               "scm_branch": "",
+               "ask_tags_on_launch": false,
+               "force_handlers": false,
+               "job_type": "run",
+               "related": {
+                    "extra_credentials": "/api/v2/job_templates/10/extra_credentials/",
+                    "notification_templates_error": "/api/v2/job_templates/10/notification_templates_error/",
+                    "notification_templates_success": "/api/v2/job_templates/10/notification_templates_success/",
+                    "jobs": "/api/v2/job_templates/10/jobs/",
+                    "notification_templates_started": "/api/v2/job_templates/10/notification_templates_started/",
+                    "labels": "/api/v2/job_templates/10/labels/",
+                    "instance_groups": "/api/v2/job_templates/10/instance_groups/",
+                    "last_job": "/api/v2/jobs/20/",
+                    "access_list": "/api/v2/job_templates/10/access_list/",
+                    "schedules": "/api/v2/job_templates/10/schedules/",
+                    "credentials": "/api/v2/job_templates/10/credentials/",
+                    "copy": "/api/v2/job_templates/10/copy/",
+                    "survey_spec": "/api/v2/job_templates/10/survey_spec/",
+                    "modified_by": "/api/v2/users/1/",
+                    "launch": "/api/v2/job_templates/10/launch/",
+                    "object_roles": "/api/v2/job_templates/10/object_roles/",
+                    "created_by": "/api/v2/users/1/",
+                    "project": "/api/v2/projects/8/",
+                    "inventory": "/api/v2/inventories/2/",
+                    "slice_workflow_jobs": "/api/v2/job_templates/10/slice_workflow_jobs/",
+                    "activity_stream": "/api/v2/job_templates/10/activity_stream/"
+               },
+               "skip_tags": "",
+               "ask_verbosity_on_launch": false,
+               "playbook": "Sample1/playbooks/file-creation.yml",
+               "next_job_run": null,
+               "id": 10,
+               "survey_enabled": false,
+               "last_job_failed": false,
+               "ask_diff_mode_on_launch": false,
+               "job_tags": "",
+               "summary_fields": {
+                    "user_capabilities": {
+                         "edit": true,
+                         "start": true,
+                         "copy": true,
+                         "delete": true,
+                         "schedule": true
+                    },
+                    "modified_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "object_roles": {
+                         "admin_role": {
+                              "id": 57,
+                              "name": "Admin",
+                              "description": "Can manage all aspects of the job template"
+                         },
+                         "execute_role": {
+                              "id": 58,
+                              "name": "Execute",
+                              "description": "May run the job template"
+                         },
+                         "read_role": {
+                              "id": 59,
+                              "name": "Read",
+                              "description": "May view settings for the job template"
+                         }
+                    },
+                    "labels": {
+                         "count": 0,
+                         "results": []
+                    },
+                    "created_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "last_update": {
+                         "status": "successful",
+                         "failed": false,
+                         "description": "",
+                         "name": "AnsibleTower1_Template_file creation",
+                         "id": 20
+                    },
+                    "project": {
+                         "status": "successful",
+                         "name": "AnsibleTower1_Project_git",
+                         "description": "",
+                         "scm_type": "git",
+                         "id": 8
+                    },
+                    "last_job": {
+                         "status": "successful",
+                         "failed": false,
+                         "finished": "2019-10-20T09:51:41.758366Z",
+                         "description": "",
+                         "id": 20,
+                         "name": "AnsibleTower1_Template_file creation"
+                    },
+                    "inventory": {
+                         "has_active_failures": false,
+                         "has_inventory_sources": true,
+                         "description": "",
+                         "name": "AnsibleTower1_inventory",
+                         "kind": "",
+                         "hosts_with_active_failures": 0,
+                         "organization_id": 2,
+                         "total_hosts": 1,
+                         "inventory_sources_with_failures": 0,
+                         "total_inventory_sources": 1,
+                         "total_groups": 4,
+                         "id": 2,
+                         "groups_with_active_failures": 0
+                    },
+                    "recent_jobs": [
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:51:41.758366Z",
+                              "type": "job",
+                              "id": 20
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:50:32.709535Z",
+                              "type": "job",
+                              "id": 18
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:09:54.630322Z",
+                              "type": "job",
+                              "id": 13
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:07:37.153549Z",
+                              "type": "job",
+                              "id": 11
+                         }
+                    ],
+                    "credentials": [
+                         {
+                              "name": "AnsibleTower1_User1_cred",
+                              "kind": "ssh",
+                              "description": "Used by the Template Under AnsibleTower1_Organisation",
+                              "cloud": false,
+                              "id": 3
+                         }
+                    ]
+               },
+               "created": "2019-10-20T09:06:34.394729Z",
+               "diff_mode": true,
+               "ask_inventory_on_launch": false,
+               "inventory": 2,
+               "forks": 0,
+               "type": "job_template",
+               "become_enabled": false,
+               "status": "successful",
+               "description": "",
+               "last_job_run": "2019-10-20T09:51:41.758366Z",
+               "ask_variables_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "start_at_task": "",
+               "ask_limit_on_launch": false,
+               "custom_virtualenv": null,
+               "host_config_key": "",
+               "job_slice_count": 1,
+               "ask_skip_tags_on_launch": false,
+               "use_fact_cache": false,
+               "name": "AnsibleTower1_Template_file_creation",
+               "allow_simultaneous": true,
+               "url": "/api/v2/job_templates/10/",
+               "extra_vars": "",
+               "verbosity": 0,
+               "ask_credential_on_launch": false,
+               "modified": "2019-10-20T10:05:17.971997Z",
+               "project": 8,
+               "limit": "",
+               "timeout": 0,
+               "ask_scm_branch_on_launch": false
+          },
+          {
+               "scm_branch": "",
+               "ask_tags_on_launch": false,
+               "force_handlers": false,
+               "job_type": "run",
+               "related": {
+                    "extra_credentials": "/api/v2/job_templates/9/extra_credentials/",
+                    "notification_templates_error": "/api/v2/job_templates/9/notification_templates_error/",
+                    "notification_templates_success": "/api/v2/job_templates/9/notification_templates_success/",
+                    "jobs": "/api/v2/job_templates/9/jobs/",
+                    "notification_templates_started": "/api/v2/job_templates/9/notification_templates_started/",
+                    "labels": "/api/v2/job_templates/9/labels/",
+                    "instance_groups": "/api/v2/job_templates/9/instance_groups/",
+                    "last_job": "/api/v2/jobs/16/",
+                    "access_list": "/api/v2/job_templates/9/access_list/",
+                    "schedules": "/api/v2/job_templates/9/schedules/",
+                    "credentials": "/api/v2/job_templates/9/credentials/",
+                    "copy": "/api/v2/job_templates/9/copy/",
+                    "survey_spec": "/api/v2/job_templates/9/survey_spec/",
+                    "modified_by": "/api/v2/users/1/",
+                    "launch": "/api/v2/job_templates/9/launch/",
+                    "object_roles": "/api/v2/job_templates/9/object_roles/",
+                    "created_by": "/api/v2/users/1/",
+                    "project": "/api/v2/projects/8/",
+                    "inventory": "/api/v2/inventories/2/",
+                    "slice_workflow_jobs": "/api/v2/job_templates/9/slice_workflow_jobs/",
+                    "activity_stream": "/api/v2/job_templates/9/activity_stream/"
+               },
+               "skip_tags": "",
+               "ask_verbosity_on_launch": false,
+               "playbook": "Sample1/playbooks/user-create.yml",
+               "next_job_run": null,
+               "id": 9,
+               "survey_enabled": false,
+               "last_job_failed": false,
+               "ask_diff_mode_on_launch": false,
+               "job_tags": "",
+               "summary_fields": {
+                    "user_capabilities": {
+                         "edit": true,
+                         "start": true,
+                         "copy": true,
+                         "delete": true,
+                         "schedule": true
+                    },
+                    "modified_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "object_roles": {
+                         "admin_role": {
+                              "id": 54,
+                              "name": "Admin",
+                              "description": "Can manage all aspects of the job template"
+                         },
+                         "execute_role": {
+                              "id": 55,
+                              "name": "Execute",
+                              "description": "May run the job template"
+                         },
+                         "read_role": {
+                              "id": 56,
+                              "name": "Read",
+                              "description": "May view settings for the job template"
+                         }
+                    },
+                    "labels": {
+                         "count": 0,
+                         "results": []
+                    },
+                    "created_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "last_update": {
+                         "status": "successful",
+                         "failed": false,
+                         "description": "",
+                         "name": "user creation",
+                         "id": 16
+                    },
+                    "project": {
+                         "status": "successful",
+                         "name": "AnsibleTower1_Project_git",
+                         "description": "",
+                         "scm_type": "git",
+                         "id": 8
+                    },
+                    "last_job": {
+                         "status": "successful",
+                         "failed": false,
+                         "finished": "2019-10-20T09:44:06.029235Z",
+                         "description": "",
+                         "id": 16,
+                         "name": "user creation"
+                    },
+                    "inventory": {
+                         "has_active_failures": false,
+                         "has_inventory_sources": true,
+                         "description": "",
+                         "name": "AnsibleTower1_inventory",
+                         "kind": "",
+                         "hosts_with_active_failures": 0,
+                         "organization_id": 2,
+                         "total_hosts": 1,
+                         "inventory_sources_with_failures": 0,
+                         "total_inventory_sources": 1,
+                         "total_groups": 4,
+                         "id": 2,
+                         "groups_with_active_failures": 0
+                    },
+                    "recent_jobs": [
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:44:06.029235Z",
+                              "type": "job",
+                              "id": 16
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:00:53.620649Z",
+                              "type": "job",
+                              "id": 9
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T08:45:00.866185Z",
+                              "type": "job",
+                              "id": 7
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T08:40:04.464022Z",
+                              "type": "job",
+                              "id": 5
+                         },
+                         {
+                              "status": "failed",
+                              "finished": "2019-10-20T08:38:10.662954Z",
+                              "type": "job",
+                              "id": 3
+                         }
+                    ],
+                    "credentials": [
+                         {
+                              "name": "AnsibleTower1_User1_cred",
+                              "kind": "ssh",
+                              "description": "Used by the Template Under AnsibleTower1_Organisation",
+                              "cloud": false,
+                              "id": 3
+                         }
+                    ]
+               },
+               "created": "2019-10-20T08:36:46.057223Z",
+               "diff_mode": true,
+               "ask_inventory_on_launch": false,
+               "inventory": 2,
+               "forks": 0,
+               "type": "job_template",
+               "become_enabled": false,
+               "status": "successful",
+               "description": "",
+               "last_job_run": "2019-10-20T09:44:06.029235Z",
+               "ask_variables_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "start_at_task": "",
+               "ask_limit_on_launch": false,
+               "custom_virtualenv": null,
+               "host_config_key": "",
+               "job_slice_count": 1,
+               "ask_skip_tags_on_launch": false,
+               "use_fact_cache": false,
+               "name": "AnsibleTower1_Template_user_creation",
+               "allow_simultaneous": true,
+               "url": "/api/v2/job_templates/9/",
+               "extra_vars": "",
+               "verbosity": 0,
+               "ask_credential_on_launch": false,
+               "modified": "2019-10-20T09:47:37.612653Z",
+               "project": 8,
+               "limit": "",
+               "timeout": 0,
+               "ask_scm_branch_on_launch": false
+          },
+          {
+               "scm_branch": "",
+               "ask_tags_on_launch": false,
+               "force_handlers": false,
+               "job_type": "run",
+               "related": {
+                    "extra_credentials": "/api/v2/job_templates/13/extra_credentials/",
+                    "notification_templates_error": "/api/v2/job_templates/13/notification_templates_error/",
+                    "notification_templates_success": "/api/v2/job_templates/13/notification_templates_success/",
+                    "jobs": "/api/v2/job_templates/13/jobs/",
+                    "notification_templates_started": "/api/v2/job_templates/13/notification_templates_started/",
+                    "labels": "/api/v2/job_templates/13/labels/",
+                    "instance_groups": "/api/v2/job_templates/13/instance_groups/",
+                    "last_job": "/api/v2/jobs/33/",
+                    "access_list": "/api/v2/job_templates/13/access_list/",
+                    "schedules": "/api/v2/job_templates/13/schedules/",
+                    "credentials": "/api/v2/job_templates/13/credentials/",
+                    "copy": "/api/v2/job_templates/13/copy/",
+                    "survey_spec": "/api/v2/job_templates/13/survey_spec/",
+                    "modified_by": "/api/v2/users/1/",
+                    "launch": "/api/v2/job_templates/13/launch/",
+                    "object_roles": "/api/v2/job_templates/13/object_roles/",
+                    "created_by": "/api/v2/users/1/",
+                    "project": "/api/v2/projects/11/",
+                    "inventory": "/api/v2/inventories/3/",
+                    "slice_workflow_jobs": "/api/v2/job_templates/13/slice_workflow_jobs/",
+                    "activity_stream": "/api/v2/job_templates/13/activity_stream/"
+               },
+               "skip_tags": "",
+               "ask_verbosity_on_launch": false,
+               "playbook": "Sample2/playbooks/file-creation.yml",
+               "next_job_run": null,
+               "id": 13,
+               "survey_enabled": false,
+               "last_job_failed": false,
+               "ask_diff_mode_on_launch": false,
+               "job_tags": "",
+               "summary_fields": {
+                    "user_capabilities": {
+                         "edit": true,
+                         "start": true,
+                         "copy": true,
+                         "delete": true,
+                         "schedule": true
+                    },
+                    "modified_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "object_roles": {
+                         "admin_role": {
+                              "id": 93,
+                              "name": "Admin",
+                              "description": "Can manage all aspects of the job template"
+                         },
+                         "execute_role": {
+                              "id": 94,
+                              "name": "Execute",
+                              "description": "May run the job template"
+                         },
+                         "read_role": {
+                              "id": 95,
+                              "name": "Read",
+                              "description": "May view settings for the job template"
+                         }
+                    },
+                    "labels": {
+                         "count": 0,
+                         "results": []
+                    },
+                    "created_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "last_update": {
+                         "status": "successful",
+                         "failed": false,
+                         "description": "",
+                         "name": "AnsibleTower2_Template_file_creation",
+                         "id": 33
+                    },
+                    "project": {
+                         "status": "successful",
+                         "name": "AnsibleTower2_Project_git",
+                         "description": "",
+                         "scm_type": "git",
+                         "id": 11
+                    },
+                    "last_job": {
+                         "status": "successful",
+                         "failed": false,
+                         "finished": "2019-10-20T10:09:27.368173Z",
+                         "description": "",
+                         "id": 33,
+                         "name": "AnsibleTower2_Template_file_creation"
+                    },
+                    "inventory": {
+                         "has_active_failures": false,
+                         "has_inventory_sources": false,
+                         "description": "",
+                         "name": "AnsibleTower2_inventory",
+                         "kind": "",
+                         "hosts_with_active_failures": 0,
+                         "organization_id": 3,
+                         "total_hosts": 1,
+                         "inventory_sources_with_failures": 0,
+                         "total_inventory_sources": 0,
+                         "total_groups": 0,
+                         "id": 3,
+                         "groups_with_active_failures": 0
+                    },
+                    "recent_jobs": [
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T10:09:27.368173Z",
+                              "type": "job",
+                              "id": 33
+                         }
+                    ],
+                    "credentials": [
+                         {
+                              "name": "AnsibleTower2_User2_Cred",
+                              "kind": "ssh",
+                              "description": "Used by the Template Under AnsibleTower2_Organisation",
+                              "cloud": false,
+                              "id": 4
+                         }
+                    ]
+               },
+               "created": "2019-10-20T10:03:35.464354Z",
+               "diff_mode": true,
+               "ask_inventory_on_launch": false,
+               "inventory": 3,
+               "forks": 0,
+               "type": "job_template",
+               "become_enabled": false,
+               "status": "successful",
+               "description": "",
+               "last_job_run": "2019-10-20T10:09:27.368173Z",
+               "ask_variables_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "start_at_task": "",
+               "ask_limit_on_launch": false,
+               "custom_virtualenv": null,
+               "host_config_key": "",
+               "job_slice_count": 1,
+               "ask_skip_tags_on_launch": false,
+               "use_fact_cache": false,
+               "name": "AnsibleTower2_Template_file_creation",
+               "allow_simultaneous": true,
+               "url": "/api/v2/job_templates/13/",
+               "extra_vars": "",
+               "verbosity": 0,
+               "ask_credential_on_launch": false,
+               "modified": "2019-10-20T10:05:34.929903Z",
+               "project": 11,
+               "limit": "",
+               "timeout": 0,
+               "ask_scm_branch_on_launch": false
+          },
+          {
+               "scm_branch": "",
+               "ask_tags_on_launch": false,
+               "force_handlers": false,
+               "job_type": "run",
+               "related": {
+                    "extra_credentials": "/api/v2/job_templates/12/extra_credentials/",
+                    "notification_templates_error": "/api/v2/job_templates/12/notification_templates_error/",
+                    "notification_templates_success": "/api/v2/job_templates/12/notification_templates_success/",
+                    "jobs": "/api/v2/job_templates/12/jobs/",
+                    "notification_templates_started": "/api/v2/job_templates/12/notification_templates_started/",
+                    "labels": "/api/v2/job_templates/12/labels/",
+                    "instance_groups": "/api/v2/job_templates/12/instance_groups/",
+                    "last_job": "/api/v2/jobs/28/",
+                    "access_list": "/api/v2/job_templates/12/access_list/",
+                    "schedules": "/api/v2/job_templates/12/schedules/",
+                    "credentials": "/api/v2/job_templates/12/credentials/",
+                    "copy": "/api/v2/job_templates/12/copy/",
+                    "survey_spec": "/api/v2/job_templates/12/survey_spec/",
+                    "modified_by": "/api/v2/users/1/",
+                    "launch": "/api/v2/job_templates/12/launch/",
+                    "object_roles": "/api/v2/job_templates/12/object_roles/",
+                    "created_by": "/api/v2/users/1/",
+                    "project": "/api/v2/projects/11/",
+                    "inventory": "/api/v2/inventories/3/",
+                    "slice_workflow_jobs": "/api/v2/job_templates/12/slice_workflow_jobs/",
+                    "activity_stream": "/api/v2/job_templates/12/activity_stream/"
+               },
+               "skip_tags": "",
+               "ask_verbosity_on_launch": false,
+               "playbook": "Sample2/playbooks/file-creation.yml",
+               "next_job_run": null,
+               "id": 12,
+               "survey_enabled": false,
+               "last_job_failed": false,
+               "ask_diff_mode_on_launch": false,
+               "job_tags": "",
+               "summary_fields": {
+                    "user_capabilities": {
+                         "edit": true,
+                         "start": true,
+                         "copy": true,
+                         "delete": true,
+                         "schedule": true
+                    },
+                    "modified_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "object_roles": {
+                         "admin_role": {
+                              "id": 90,
+                              "name": "Admin",
+                              "description": "Can manage all aspects of the job template"
+                         },
+                         "execute_role": {
+                              "id": 91,
+                              "name": "Execute",
+                              "description": "May run the job template"
+                         },
+                         "read_role": {
+                              "id": 92,
+                              "name": "Read",
+                              "description": "May view settings for the job template"
+                         }
+                    },
+                    "labels": {
+                         "count": 0,
+                         "results": []
+                    },
+                    "created_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "last_update": {
+                         "status": "successful",
+                         "failed": false,
+                         "description": "",
+                         "name": "AnsibleTower2_Template_user_creation",
+                         "id": 28
+                    },
+                    "project": {
+                         "status": "successful",
+                         "name": "AnsibleTower2_Project_git",
+                         "description": "",
+                         "scm_type": "git",
+                         "id": 11
+                    },
+                    "last_job": {
+                         "status": "successful",
+                         "failed": false,
+                         "finished": "2019-10-20T10:02:03.582937Z",
+                         "description": "",
+                         "id": 28,
+                         "name": "AnsibleTower2_Template_user_creation"
+                    },
+                    "inventory": {
+                         "has_active_failures": false,
+                         "has_inventory_sources": false,
+                         "description": "",
+                         "name": "AnsibleTower2_inventory",
+                         "kind": "",
+                         "hosts_with_active_failures": 0,
+                         "organization_id": 3,
+                         "total_hosts": 1,
+                         "inventory_sources_with_failures": 0,
+                         "total_inventory_sources": 0,
+                         "total_groups": 0,
+                         "id": 3,
+                         "groups_with_active_failures": 0
+                    },
+                    "recent_jobs": [
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T10:02:03.582937Z",
+                              "type": "job",
+                              "id": 28
+                         },
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T09:59:40.774584Z",
+                              "type": "job",
+                              "id": 26
+                         }
+                    ],
+                    "credentials": [
+                         {
+                              "name": "AnsibleTower2_User2_Cred",
+                              "kind": "ssh",
+                              "description": "Used by the Template Under AnsibleTower2_Organisation",
+                              "cloud": false,
+                              "id": 4
+                         }
+                    ]
+               },
+               "created": "2019-10-20T09:55:58.298725Z",
+               "diff_mode": true,
+               "ask_inventory_on_launch": false,
+               "inventory": 3,
+               "forks": 0,
+               "type": "job_template",
+               "become_enabled": false,
+               "status": "successful",
+               "description": "",
+               "last_job_run": "2019-10-20T10:02:03.582937Z",
+               "ask_variables_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "start_at_task": "",
+               "ask_limit_on_launch": false,
+               "custom_virtualenv": null,
+               "host_config_key": "",
+               "job_slice_count": 1,
+               "ask_skip_tags_on_launch": false,
+               "use_fact_cache": false,
+               "name": "AnsibleTower2_Template_user_creation",
+               "allow_simultaneous": true,
+               "url": "/api/v2/job_templates/12/",
+               "extra_vars": "",
+               "verbosity": 0,
+               "ask_credential_on_launch": false,
+               "modified": "2019-10-20T10:06:19.762155Z",
+               "project": 11,
+               "limit": "",
+               "timeout": 0,
+               "ask_scm_branch_on_launch": false
+          },
+          {
+               "scm_branch": "",
+               "ask_tags_on_launch": false,
+               "force_handlers": false,
+               "job_type": "run",
+               "related": {
+                    "extra_credentials": "/api/v2/job_templates/7/extra_credentials/",
+                    "notification_templates_error": "/api/v2/job_templates/7/notification_templates_error/",
+                    "notification_templates_success": "/api/v2/job_templates/7/notification_templates_success/",
+                    "jobs": "/api/v2/job_templates/7/jobs/",
+                    "notification_templates_started": "/api/v2/job_templates/7/notification_templates_started/",
+                    "labels": "/api/v2/job_templates/7/labels/",
+                    "instance_groups": "/api/v2/job_templates/7/instance_groups/",
+                    "last_job": "/api/v2/jobs/31/",
+                    "access_list": "/api/v2/job_templates/7/access_list/",
+                    "schedules": "/api/v2/job_templates/7/schedules/",
+                    "credentials": "/api/v2/job_templates/7/credentials/",
+                    "copy": "/api/v2/job_templates/7/copy/",
+                    "survey_spec": "/api/v2/job_templates/7/survey_spec/",
+                    "modified_by": "/api/v2/users/1/",
+                    "launch": "/api/v2/job_templates/7/launch/",
+                    "object_roles": "/api/v2/job_templates/7/object_roles/",
+                    "created_by": "/api/v2/users/1/",
+                    "project": "/api/v2/projects/6/",
+                    "inventory": "/api/v2/inventories/1/",
+                    "slice_workflow_jobs": "/api/v2/job_templates/7/slice_workflow_jobs/",
+                    "activity_stream": "/api/v2/job_templates/7/activity_stream/"
+               },
+               "skip_tags": "",
+               "ask_verbosity_on_launch": false,
+               "playbook": "hello_world.yml",
+               "next_job_run": null,
+               "id": 7,
+               "survey_enabled": false,
+               "last_job_failed": false,
+               "ask_diff_mode_on_launch": false,
+               "job_tags": "",
+               "summary_fields": {
+                    "user_capabilities": {
+                         "edit": true,
+                         "start": true,
+                         "copy": true,
+                         "delete": true,
+                         "schedule": true
+                    },
+                    "modified_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "object_roles": {
+                         "admin_role": {
+                              "id": 27,
+                              "name": "Admin",
+                              "description": "Can manage all aspects of the job template"
+                         },
+                         "execute_role": {
+                              "id": 28,
+                              "name": "Execute",
+                              "description": "May run the job template"
+                         },
+                         "read_role": {
+                              "id": 29,
+                              "name": "Read",
+                              "description": "May view settings for the job template"
+                         }
+                    },
+                    "labels": {
+                         "count": 0,
+                         "results": []
+                    },
+                    "created_by": {
+                         "username": "admin",
+                         "first_name": "Local",
+                         "last_name": "admin",
+                         "id": 1
+                    },
+                    "last_update": {
+                         "status": "successful",
+                         "failed": false,
+                         "description": "",
+                         "name": "Demo Job Template",
+                         "id": 31
+                    },
+                    "project": {
+                         "status": "successful",
+                         "name": "Demo Project",
+                         "description": "",
+                         "scm_type": "git",
+                         "id": 6
+                    },
+                    "last_job": {
+                         "status": "successful",
+                         "failed": false,
+                         "finished": "2019-10-20T10:08:27.053341Z",
+                         "description": "",
+                         "id": 31,
+                         "name": "Demo Job Template"
+                    },
+                    "inventory": {
+                         "has_active_failures": false,
+                         "has_inventory_sources": false,
+                         "description": "",
+                         "name": "Demo Inventory",
+                         "kind": "",
+                         "hosts_with_active_failures": 0,
+                         "organization_id": 1,
+                         "total_hosts": 1,
+                         "inventory_sources_with_failures": 0,
+                         "total_inventory_sources": 0,
+                         "total_groups": 0,
+                         "id": 1,
+                         "groups_with_active_failures": 0
+                    },
+                    "recent_jobs": [
+                         {
+                              "status": "successful",
+                              "finished": "2019-10-20T10:08:27.053341Z",
+                              "type": "job",
+                              "id": 31
+                         }
+                    ],
+                    "credentials": [
+                         {
+                              "name": "Demo Credential",
+                              "kind": "ssh",
+                              "description": "",
+                              "cloud": false,
+                              "id": 1
+                         }
+                    ]
+               },
+               "created": "2019-10-20T05:52:37.258139Z",
+               "diff_mode": false,
+               "ask_inventory_on_launch": false,
+               "inventory": 1,
+               "forks": 0,
+               "type": "job_template",
+               "become_enabled": false,
+               "status": "successful",
+               "description": "",
+               "last_job_run": "2019-10-20T10:08:27.053341Z",
+               "ask_variables_on_launch": false,
+               "ask_job_type_on_launch": false,
+               "start_at_task": "",
+               "ask_limit_on_launch": false,
+               "custom_virtualenv": null,
+               "host_config_key": "",
+               "job_slice_count": 1,
+               "ask_skip_tags_on_launch": false,
+               "use_fact_cache": false,
+               "name": "Demo Job Template",
+               "allow_simultaneous": false,
+               "url": "/api/v2/job_templates/7/",
+               "extra_vars": "",
+               "verbosity": 0,
+               "ask_credential_on_launch": false,
+               "modified": "2019-10-20T05:52:37.258159Z",
+               "project": 6,
+               "limit": "",
+               "timeout": 0,
+               "ask_scm_branch_on_launch": false
+          }
+     ],
+     "previous": null
+}
+
+
+[root@redhat7 ~]# awx --conf.host http://172.17.5.162:8090 --conf.username admin --conf.password password --conf.insecure job_templates launch AnsibleTower1_Template_file_creation --monitor
+
+
