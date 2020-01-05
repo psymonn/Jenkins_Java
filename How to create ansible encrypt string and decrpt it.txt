@@ -84,6 +84,9 @@ fastfredfedfourfrankfurters
 encrypt and decrypt string: example Three
 ------------------------------------------
 ansible-vault create awx_vault_passwd.yml
+New Vault password:
+Confirm New Vault password:
+
 [root@redhat7 vault_password_file]# cat awx_vault_passwd.yml
 $ANSIBLE_VAULT;1.1;AES256
 33333465376538646663363461383732333362336261663063326134616362393266353565646466
@@ -115,10 +118,23 @@ or read password from a file:
 Zn***
 Decryption successful
 
+------------------------------------------------------------------
+Or Decrypt the file and make update then encrypt the file again:
+------------------------------------------------------------------
+[root@redhat7 vault_password_file]# ansible-vault decrypt awx_vault_passwd.yml
+Vault password:
+Decryption successful
+[root@redhat7 vault_password_file]# vi awx_vault_passwd.yml
+[root@redhat7 vault_password_file]# ansible-vault encrypt awx_vault_passwd.yml
+New Vault password:
+Confirm New Vault password:
+Encryption successful
+[root@redhat7 vault_password_file]#
 
----------------
-alternative (include \n):
------------------
+
+----------------------------------------
+Using including CR method (include \n):
+----------------------------------------
 Had to replace newline with literal(\n) and enable interpretation of escape sequences # echo -e '$ANSIBLE_VAULT;1.1;AES256\n34626638366161336437303439643066366466376431346336613332336433386539303737613663\n6639393965653239356435613038303030616163333565300a313932616365383336323839363935\n66363439666461323466343366343737373834353333363935346132356663346365386163323733\n3332316134323064310a386164373661323233333862643231303034663632363061383433616166\n62653564653035316165666363656461386632333738666663323664303963393437' | ansible-vault decrypt && echo Vault password: Decryption successful
 
 
