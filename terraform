@@ -1,0 +1,24 @@
+Host/VMName	OS	IP	Username	Password	Roles/Installed/Notes	
+Build Switch	Cisco	192.168.0.1/24	root	VMware1!	Use Putty - Telnet - Console Cable COM1 port	
+WebUi for Switch	Cisco	https://192.168.0.1	admin	cisco	Cisco Web GUI for build Switch	
+iDrac	iDrac	https://192.168.0.120	root	VMware1!		
+Esxi	esxi	https://192.168.0.121	root	VMware1!		
+VCSA	Vcenter	https://192.168.0.122	Administrator@vsphere.local	VMware1!	Test Vcenter - Not required. 	
+DellOpenManage	HTTP/Centos	https://192.168.0.123	admin	VMware1!	Dell OpenManage Enterprise 	
+Ubuntu-01	Ubuntu-64	192.168.0.125	Admin	VMware1!	Ansible,Terrraform,VS Code	
+Win-BuildServer	Server2016	192.168.0.126	Administrator	VMware1!	DHCP,DNS,NFS file Server	NFS Share - \\192.168.0.126\e$\ISO
+Default iDrac Creds	iDrac		root	calvin	Default username/password for out of the box Dell servers	
+VM Templates on ESXI - Datastore-01						
+Template-Win10	Windows 10	DHCP	Administrator & leidos	VMware1!	Vanilla - IPV6 disabled - See windows Ansible Setup	
+Template-Srv2016	Server 2016	DHCP	Administrator	VMware1!	Vanilla - IPV6 disabled - See windows Ansible Setup	
+						
+						
+Ansible Windows Setup						
+WinRM is required to be enabled on Windows templates to allow ansible to connect via WinRM. Run the .ps1 script on all Windows Templates						
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted						
+Run .ps1 script						
+https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1						
+						
+ISOs						
+iSos are located on the Desktop of the build latpop and also on the Datastore-01 of the esxi server. 						
+Ubuntu OVF is located on Datastore-01\Ubuntu - this has ansible/terraform and VS code installed - use this for a clean install						
