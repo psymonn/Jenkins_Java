@@ -1,0 +1,23 @@
+Resolved:
+[oracle@devsnowdb01 ~]$ set oracle_sid=snwuat01
+[oracle@devsnowdb01 ~]$ sqlplus /nolog
+
+SQL*Plus: Release 11.2.0.1.0 Production on Thu Nov 28 13:08:56 2019
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+SQL> conn sys/sys as sysdba
+Connected to an idle instance.
+SQL> shutdown abort
+ORACLE instance shut down.
+SQL> startup
+ORACLE instance started.
+
+Total System Global Area 3273641984 bytes
+Fixed Size                  2217792 bytes
+Variable Size            2013268160 bytes
+Database Buffers         1241513984 bytes
+Redo Buffers               16642048 bytes
+Database mounted.
+Database opened.
+SQL> quit
