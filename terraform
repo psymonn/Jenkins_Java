@@ -22,3 +22,5 @@ https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemoting
 ISOs						
 iSos are located on the Desktop of the build latpop and also on the Datastore-01 of the esxi server. 						
 Ubuntu OVF is located on Datastore-01\Ubuntu - this has ansible/terraform and VS code installed - use this for a clean install						
+
+https://dl.dell.com/FOLDER05953560M/1/openmanage_enterprise_ovf_format_3.3.1.zip
