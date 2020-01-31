@@ -24,3 +24,18 @@ iSos are located on the Desktop of the build latpop and also on the Datastore-01
 Ubuntu OVF is located on Datastore-01\Ubuntu - this has ansible/terraform and VS code installed - use this for a clean install						
 
 https://dl.dell.com/FOLDER05953560M/1/openmanage_enterprise_ovf_format_3.3.1.zip
+
+-----------
+Ansible:
+-------------
+
+install ansible - web access required
+sudo apt-get install python -y
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+install python/pywinrm - required for winrm
+sudo apt install python-pip
+pip install pywinrm
+windows guest requires winrm enabled
+https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1
+
