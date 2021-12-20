@@ -1,0 +1,52 @@
+Setup Splunk SAI (Splunk App Insfrastructure)
+------------------------
+
+About the Infrastructure Overview in ITSI
+https://docs.splunk.com/Documentation/ITSI/4.11.2/Entity/InfraOverview
+Kubernetes Node*  Collect Kubernetes metrics and logs with Splunk App for Infrastructure
+Kubernetes Pod*   (*) ITSI doesn't currently have a Kubernetes integration. Discover Kubernetes entities in Splunk App for Infrastructure (SAI) and view them in ITSI. 
+                  For more information, see Integrate the Splunk App for Infrastructure with ITSI.
+
+
+About the Splunk App for Infrastructure
+https://docs.splunk.com/Documentation/InfraApp/2.2.4/Admin/AddDataKubernetes
+   Install the Splunk App for Infrastructure in a single-instance deployment
+   https://docs.splunk.com/Documentation/InfraApp/2.2.4/Install/Install
+		Configure the HTTP Event Collector to receive metrics data for SAI
+		https://docs.splunk.com/Documentation/InfraApp/2.2.4/Admin/HEC
+			em_metrics is the default metrics index to send data you receive from HEC. If you want to use another metrics index, specify it when you create the HEC token instead. 
+			If you use another index, you have to update the sai_metrics_indexes macro, too. For more information about using another index, see Use custom metric indexes in Splunk App for Infrastructure.
+			
+				indexer: em_metrics
+				
+Note: we are using Splunk connect so this steps are superceded
+
+				
+IT Service Intellgence:
+
+Splunk Observability Cloud content packs analysis:
+
+Service Analyzer:
+doesn't support on-prem Kubernetes Pod Service only support Kubernetes Pod which pulled from Cloud Observability SaaS that uses the Observability Cloud content packs. 
+Deep Dives feature depends the Service, we cannot create Kubernetes Pod
+
+Deep Dives:
+doesn't support on-prem
+
+Glass Tables:
+doesn't support on-prem
+
+Insfrastructure Overiew
+support on-prem, however this is a free feature (IT Essential free version already include this feature, this feature is added from Splunk App Infrasture - SAI)
+This will provide metric service to kubernete pods and nodes however it is very limited features
+ref: https://www.splunk.com/en_us/blog/it/why-you-should-migrate-from-legacy-apps-to-it-essentials-work.html
+
+
+Summary:
+We can't use any ITSI functionlity for Kubernetes purpose
+
+
+
+
+
+   
